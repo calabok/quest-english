@@ -5,3 +5,6 @@
 **Открыть:** https://calabok.github.io/quest-english/
 
 Весь прототип — это один файл `index.html` без внешних зависимостей. Прогресс сохраняется в браузере (localStorage). Микрофон работает в Chrome, Edge и Safari по https.
+
+
+Словарь в режиме «Слова»: см. [LICENSE-DATA.md](LICENSE-DATA.md) (CC BY-SA 4.0; wordfreq, Викисловарь, Tatoeba, WordNet).

@@ -1,4 +1,4 @@
-<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><meta name="app-version" content="v14"><meta name="viewport" content="width=device-width"><title>Квест-Инглиш — прототип v14</title><style>
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><meta name="app-version" content="v15"><meta name="viewport" content="width=device-width"><title>Квест-Инглиш — прототип v15</title><style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Noto Sans',sans-serif;background:#1e1b3a;display:flex;gap:15px;width:2010px}
 .p{width:390px;height:844px;border-radius:0;overflow:hidden;position:relative;background:#f6f3ff;color:#2b2350;padding:54px 20px 20px}
@@ -14,7 +14,7 @@ h1{font-size:26px;font-weight:800}h2{font-size:18px;font-weight:800;margin:16px 
 .btn{display:block;text-align:center;padding:16px;border-radius:20px;font-weight:800;font-size:17px;color:#fff;background:linear-gradient(90deg,#7f5af0,#ff6bb5);box-shadow:0 8px 20px rgba(127,90,240,.4)}
 .row{display:flex;gap:10px;align-items:center}
 .nav{position:absolute;bottom:0;left:0;right:0;height:74px;background:#fff;display:flex;justify-content:space-around;align-items:center;font-size:11px;color:#9a91c4;border-top:1px solid #eee}
-.nav div{text-align:center}.nav b{display:block;font-size:20px}.nav div{font-size:10px}.nav .on{color:#7f5af0;font-weight:700}
+.nav div{text-align:center}.nav b{display:block;font-size:19px}.nav div{font-size:9.5px;flex:1}.nav .on{color:#7f5af0;font-weight:700}
 .bub{padding:12px 14px;border-radius:18px;font-size:15px;max-width:80%;margin-bottom:10px}
 .chip{display:inline-block;padding:6px 12px;border-radius:14px;background:#efeaff;font-size:13px;font-weight:700;color:#7f5af0}
 .w{background:#fff;border-radius:18px;padding:12px;box-shadow:0 4px 12px rgba(80,60,180,.1)}
@@ -81,7 +81,7 @@ body{display:block;width:auto;min-height:100vh;display:flex;align-items:center;j
 <h2>Выбери мир</h2>
 <div id="worlds"></div>
 <div class="row" style="justify-content:space-between"><div style="font-size:13px;color:#7a70a6">Серия на неделе</div><div style="font-size:18px;letter-spacing:4px" id="hweek">⚪⚪⚪⚪⚪⚪⚪</div></div>
-<div class="ver" id="hver" style="text-align:center;margin-top:14px;color:#b0a8cc;font-size:11px">Квест-Инглиш v14 · 14.10.2026</div>
+<div class="ver" id="hver" style="text-align:center;margin-top:14px;color:#b0a8cc;font-size:11px">Квест-Инглиш v15 · 14.10.2026</div>
 </div>
 
 <div class="scr" id="dialog" style="background:linear-gradient(180deg,#ffe6c7,#fff6ec 45%)">
@@ -104,7 +104,7 @@ body{display:block;width:auto;min-height:100vh;display:flex;align-items:center;j
 
 <div class="scr" id="map"><div class="row" style="justify-content:space-between"><h1><span class="back">←</span>🗺️ Карта уровней</h1><span class="chip" style="background:#fff1e0;color:#ff7a00;white-space:nowrap" id="xp">⭐ 0 XP</span></div>
 <div class="sub" style="margin:2px 0 10px">Каждый уровень — 10 глав и экзамен-босс 👹</div><div id="levels"></div>
-<div class="btn" data-next="1" id="cont">▶ Продолжить главу 7</div><div class="click" data-go="testintro" id="maptest" style="text-align:center;margin-top:10px;color:#7f5af0;font-weight:700;font-size:14px;text-decoration:underline">Пройти тест уровня (3 мин)</div><div class="ver" style="text-align:center;margin-top:8px;color:#b0a8cc;font-size:11px">Квест-Инглиш v14 · 14.10.2026</div><div class="click" id="reset" style="text-align:center;margin-top:14px;color:#b0a8cc;font-size:12px">↺ Сбросить прогресс</div></div>
+<div class="btn" data-next="1" id="cont">▶ Продолжить главу 7</div><div class="click" data-go="testintro" id="maptest" style="text-align:center;margin-top:10px;color:#7f5af0;font-weight:700;font-size:14px;text-decoration:underline">Пройти тест уровня (3 мин)</div><div class="ver" style="text-align:center;margin-top:8px;color:#b0a8cc;font-size:11px">Квест-Инглиш v15 · 14.10.2026</div><div class="click" id="reset" style="text-align:center;margin-top:14px;color:#b0a8cc;font-size:12px">↺ Сбросить прогресс</div></div>
 
 <div class="scr" id="inv"><h1><span class="back">←</span>🎒 Инвентарь слов</h1><div class="sub" id="invsub">0 слов собрано</div>
 <div class="card g1 row click" data-go="lair" style="margin-top:14px;padding:12px 16px"><div style="font-size:28px">✨</div><div style="font-size:14px"><b>Слова тускнеют!</b><br>Сразись с ними в Логове</div><div style="margin-left:auto;background:#fff;color:#ff6b6b;padding:8px 12px;border-radius:14px;font-weight:800">Вперёд</div></div>
@@ -201,14 +201,27 @@ body{display:block;width:auto;min-height:100vh;display:flex;align-items:center;j
 <div class="scr" id="advbag"><h1><span class="back">←</span>🎒 Снаряжение</h1><div class="row" style="gap:8px;margin:10px 0" id="aslots"></div><div class="sub" id="abstats"></div><h3>Сумка</h3><div id="abaglist"></div></div>
 <div class="scr" id="advshop"><h1><span class="back">←</span>🧔 Лавка торговца</h1><div class="sub" id="ashopsub"></div><div id="ashoplist" style="margin-top:12px"></div></div>
 <div class="scr" id="advcol"><h1><span class="back">←</span>📚 Коллекция слов</h1><div class="sub" id="acolsub"></div><div class="row" style="gap:6px;margin:10px 0" id="acolf"></div><div id="acolgrid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px"></div></div>
-<div class="nav" id="nav"><div data-tab="home"><b>🏠</b>Главная</div><div data-tab="map"><b>🗺️</b>Карта</div><div data-tab="inv"><b>🎒</b>Инвентарь</div><div data-tab="lair"><b>🕳️</b>Логово</div><div data-tab="duel"><b>🤺</b>Дуэль</div><div data-tab="adv"><b>⚔️</b>Приключение</div></div>
+<div class="scr" id="lex"><div class="row" style="justify-content:space-between"><h1>📚 Слова</h1><span class="chip" id="lxgoalchip">🎯 0/20</span></div>
+<div id="lxload" class="card" style="text-align:center;padding:24px">⏳ Загружаю словарь…</div>
+<div id="lxmain" style="display:none">
+<div class="card g2" style="padding:14px"><div style="font-size:13px;opacity:.9">Твой словарный запас</div><div style="font-size:22px;font-weight:800" id="lxknow">Знаешь 0 из 5000</div><div class="hbar2" style="margin:8px 0;background:rgba(255,255,255,.3)"><i id="lxbar"></i></div>
+<div style="font-size:13px" id="lxc">C1–C2: 0 из 0</div><div style="font-size:13px" id="lxgold">🏅 Золотых наборов: 0</div></div>
+<div class="card" style="padding:12px"><div class="row" style="justify-content:space-between"><b>🎯 Цель дня</b><span class="sub" id="lxgoaltxt"></span></div><div class="hbar2" style="margin-top:6px"><i id="lxgoalbar"></i></div><div class="row" style="gap:6px;margin-top:8px" id="lxgoalset"></div></div>
+<div class="btn" id="lxreview" style="margin-bottom:10px">🔁 Повторить слова</div>
+<div class="row" style="gap:8px;margin-bottom:12px"><div class="opt" style="flex:1;padding:10px" id="lxswipe">👆<br><span style="font-size:12px">Знаю / не знаю</span></div><div class="opt" style="flex:1;padding:10px" id="lxblitz">⚡<br><span style="font-size:12px">Молния 60 с</span></div><div class="opt" style="flex:1;padding:10px" id="lxpairs">🧩<br><span style="font-size:12px">Пары</span></div></div>
+<input id="lxq" placeholder="🔎 Поиск: слово по-английски или по-русски" style="width:100%;padding:12px;border-radius:14px;border:2px solid #e3dcff;font-size:15px"><div id="lxres"></div>
+<div class="row" style="gap:6px;margin:14px 0 8px;flex-wrap:wrap" id="lxlv"></div><div id="lxsets"></div>
+<div class="sub" style="font-size:10px;margin-top:14px">Данные: частотность — wordfreq (CC BY-SA 4.0); переводы — Викисловарь через kaikki.org (CC BY-SA 4.0); примеры — Tatoeba (CC BY 2.0 FR); темы — WordNet. Уровни CEFR — оценка по частотности.</div></div></div>
+<div class="scr" id="lexset"><h1><span class="back">←</span><span id="lsname"></span></h1><div class="sub" id="lssub"></div><div class="btn" id="lsgo" style="margin:12px 0">Учить 10 слов ▶</div><div id="lslist"></div></div>
+<div class="scr" id="lexlearn"><div class="row" style="justify-content:space-between"><h1 style="font-size:18px" id="llt">Урок</h1><span class="chip click" id="llq">✖ Выйти</span></div><div class="hbar2" style="margin:6px 0 12px"><i id="llbar"></i></div><div id="llbody"></div><div id="llfb"></div></div>
+<div class="nav" id="nav"><div data-tab="home"><b>🏠</b>Главная</div><div data-tab="map"><b>🗺️</b>Карта</div><div data-tab="lex"><b>📚</b>Слова</div><div data-tab="inv"><b>🎒</b>Инвент.</div><div data-tab="lair"><b>🕳️</b>Логово</div><div data-tab="duel"><b>🤺</b>Дуэль</div><div data-tab="adv"><b>⚔️</b>Поход</div></div>
 </div>
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-const DEF={v:14,adv:null,dRecent:{},auto:false,fant:0,dragon:false,legend:false,lvl:0,tested:false,extra:[],xp:0,ch:1,streak:0,days:[],last:null,inv:[],invx:{},mon:[],w:0,l:0,tr:true,earned:0};
+const DEF={v:15,lex:{},lexDay:{d:'',w:[]},lexGoal:20,lexBlitz:0,adv:null,dRecent:{},auto:false,fant:0,dragon:false,legend:false,lvl:0,tested:false,extra:[],xp:0,ch:1,streak:0,days:[],last:null,inv:[],invx:{},mon:[],w:0,l:0,tr:true,earned:0};
 const fresh=()=>JSON.parse(JSON.stringify(DEF));
 let S;try{S=Object.assign(fresh(),JSON.parse(localStorage.getItem('questEnglish')||'{}'))}catch(e){S=Object.assign({},DEF)}
-const SCHEMA=14;
+const SCHEMA=15;
 const ymd=d=>{d=d||new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
 function calcStreak(days){const set=new Set(days);let d=new Date();if(!set.has(ymd(d))){d.setDate(d.getDate()-1);if(!set.has(ymd(d)))return 0}let n=0;while(set.has(ymd(d))){n++;d.setDate(d.getDate()-1)}return n}
 function act(){const t=ymd();if(!S.days.includes(t)){S.days.push(t);S.days=S.days.slice(-400)}S.last=new Date().toDateString();S.streak=calcStreak(S.days);save();hud()}
@@ -233,7 +246,7 @@ function hud(){S.streak=calcStreak(S.days);{const now=new Date(),dow=(now.getDay
  $('#cont').textContent=S.legend?'👑 Повторить главы':S.ch<=10?`▶ Продолжить главу ${S.ch}`:'👹 Сразиться с экзамен-боссом';
  $('#nextch').textContent=FANT&&S.legend?((S.fant||0)<10?`🐉 Следующая глава Фэнтези (${(S.fant||0)+1}) →`:S.dragon?'🐉 Ещё глава Фэнтези':'🐉 К финальному боссу →'):S.legend?'👑 Ещё главу':S.ch<=10?`Следующая глава (${S.ch}) →`:'👹 К экзамен-боссу →';
  renderWorlds();$('#hbadge').style.display=S.dragon?'block':'none';{const d=S.legend?10:Math.min(S.ch-1,10);$('#hbar').style.width=d*10+'%';$('#hsub').textContent=S.legend?'Все главы пройдены · нажми для повтора ▶':S.ch>10?'10 из 10 глав · нажми, чтобы сразиться с боссом ▶':`Пройдено ${d} из 10 глав · нажми, чтобы продолжить ▶`}$('#hometest').style.display=S.tested?'none':'flex';$('#drec').textContent=`🏆 ${S.w} · 💔 ${S.l}`}
-const TABS=['home','map','inv','lair','duel','adv'];let hist=[],cur=null;
+const TABS=['home','map','lex','inv','lair','duel','adv'];let hist=[],cur=null;
 function show(id,push=true){if(typeof hud=='function')hud();if(push&&cur&&cur!==id)hist.push(cur);$$('.scr').forEach(e=>e.classList.toggle('on',e.id===id));cur=id;
  $('#nav').style.display=TABS.includes(id)?'flex':'none';$$('#nav div').forEach(d=>d.classList.toggle('on',d.dataset.tab===id));
  $('#'+id).scrollTop=0;(enter[id]||(()=>{}))();if(id!=='duel')stopDuel();}
@@ -574,16 +587,16 @@ const SHOPI=[{k:'weapon',r:'rare',p:60},{k:'armor',r:'rare',p:55},{k:'amulet',r:
 function advDef(){return {cls:null,name:'Герой',hp:100,lvl:1,xp:0,coins:20,eq:{weapon:null,armor:null,amulet:null},bag:[],words:{},done:[],boss:false,raidDay:null,uid:1,pot:0,best:0}}
 function advNorm(a){a=Object.assign(advDef(),a&&typeof a==='object'?a:{});if(!CLS[a.cls])a.cls=null;['lvl','xp','coins','hp','uid','pot','best'].forEach(k=>{a[k]=Math.max(0,parseInt(a[k],10)||0)});a.lvl=Math.max(1,a.lvl);a.uid=Math.max(1,a.uid);
  if(!Array.isArray(a.bag))a.bag=[];a.bag=a.bag.filter(i=>i&&IBASE[i.k]);if(typeof a.eq!=='object'||!a.eq)a.eq={};['weapon','armor','amulet'].forEach(k=>{if(!a.eq[k]||a.eq[k].k!==k)a.eq[k]=null});
- if(typeof a.words!=='object'||!a.words)a.words={};for(const id in a.words){const w=a.words[id];if(!w||typeof w!=='object'){delete a.words[id];continue}w.s=Math.min(5,Math.max(0,parseInt(w.s,10)||0))}
+
  if(!Array.isArray(a.done))a.done=[];a.done=a.done.filter(i=>Number.isInteger(i)&&i>=0&&i<ANODES.length);a.boss=!!a.boss;return a}
 const A=()=>S.adv;
 const addD=n=>{const d=new Date();d.setDate(d.getDate()+n);return ymd(d)};
-function wrec(w){return A().words[w.id]||{s:0}}
-function isDue(w){const r=A().words[w.id];return !!(r&&r.s>0&&r.due&&r.due<=ymd())}
+function wrec(w){return S.lex[w.en.toLowerCase()]||{s:0}}
+function isDue(w){const r=S.lex[w.en.toLowerCase()];return !!(r&&r.s>0&&r.due&&r.due<=ymd())}
 function lairWords(){return MON.filter(m=>m.p<3).map((m,i)=>({id:'L:'+m.w,e:m.e,en:m.w,ru:m.ru,ex:m.w,exru:m.ru,set:'lair',hard:m.w.length>=7,lair:true}))}
 function allW(){return [...AW,...lairWords()]}
 function dueW(){return [...AW.filter(isDue),...lairWords()]}
-function srMark(w,ok){const a=A();const r=a.words[w.id]||(a.words[w.id]={s:0});r.seen=(r.seen||0)+1;const t=ymd();
+function srMark(w,ok){const a=A();const k=w.en.toLowerCase();const r=S.lex[k]||(S.lex[k]={s:0});r.seen=(r.seen||0)+1;const t=ymd();
  if(ok){r.ok=(r.ok||0)+1;if(r.last!==t||r.s===0){r.s=Math.min(5,r.s+1);r.last=t}r.due=addD(SRI[r.s])}
  else{r.bad=(r.bad||0)+1;r.s=Math.max(0,r.s-1);r.due=t}
  if(w.lair&&ok){const m=MON.find(x=>x.w===w.en);if(m&&r.last===t&&!r.lairHit){}}}
@@ -708,6 +721,118 @@ enter.advcol=()=>{const a=A(),lw=lairWords();const list=[...AW,...lw].filter(w=>
  $$('#acolf .chip').forEach(c=>c.onclick=()=>{COLF=c.dataset.f;enter.advcol()});
  $('#acolgrid').innerHTML=list.map(w=>{const r=w.lair?{s:0}:wrec(w),unk=!w.lair&&!r.seen;return `<div class="wc ${r.s>=5?'gold':''} ${unk?'unk':''} ${isDue(w)||w.lair?'due':''}" data-en="${w.en}" data-id="${w.id}"><div style="font-size:26px">${unk?'❔':w.e}</div><b style="font-size:13px">${unk?'???':w.en}</b><div class="sub" style="font-size:11px">${unk?'ещё не встречено':w.ru}</div><div class="sbar">${[1,2,3,4,5].map(i=>`<i class="${r.s>=i?'on':''}"></i>`).join('')}</div>${r.due&&!w.lair?`<div class="sub" style="font-size:9px">${isDue(w)?'😴 пора повторить':'повтор '+r.due.slice(5).split('-').reverse().join('.')}</div>`:w.lair?'<div class="sub" style="font-size:9px">из Логова</div>':''}</div>`}).join('');
  $$('#acolgrid .wc').forEach(c=>c.onclick=()=>{const w=allW().find(x=>x.id===c.dataset.id);if(!w||(!w.lair&&!wrec(w).seen))return toast('Это слово ещё не встретилось в бою');speak(w.en);toast(`${w.en} — ${w.ru}. ${w.ex}`)})};
+
+{if(typeof S.lex!=='object'||!S.lex||Array.isArray(S.lex))S.lex={};for(const k in S.lex){const r=S.lex[k];if(!r||typeof r!=='object'){delete S.lex[k];continue}r.s=Math.min(5,Math.max(0,parseInt(r.s,10)||0))}
+ if(S.adv&&S.adv.words&&typeof S.adv.words==='object'){for(const id in S.adv.words){const i=parseInt(id.slice(1),10);const en=id.startsWith('L:')?id.slice(2):AW[i]&&AW[i].en;if(en&&!S.lex[en.toLowerCase()])S.lex[en.toLowerCase()]=S.adv.words[id]}delete S.adv.words}
+ if(!S.lexDay||typeof S.lexDay!=='object'||!Array.isArray(S.lexDay.w))S.lexDay={d:'',w:[]};S.lexGoal=[10,20,30,50].includes(+S.lexGoal)?+S.lexGoal:20;}
+// ===== «Слова» =====
+let LX=null,LXloading=false;const LXT=[];
+const lk=w=>(w.en||w.w).toLowerCase();
+function lexRec(k){return S.lex[k]}
+function lexDue(k){const r=S.lex[k];return !!(r&&r.s>0&&r.due&&r.due<=ymd())}
+function lexMark(k,ok){const r=S.lex[k]||(S.lex[k]={s:0});r.seen=(r.seen||0)+1;const t=ymd();
+ if(ok){r.ok=(r.ok||0)+1;if(r.last!==t||r.s===0){r.s=Math.min(5,r.s+1);r.last=t}r.due=addD(SRI[r.s])}else{r.bad=(r.bad||0)+1;r.s=Math.max(0,r.s-1);r.due=t}
+ if(ok){if(S.lexDay.d!==t)S.lexDay={d:t,w:[]};if(!S.lexDay.w.includes(k)){S.lexDay.w.push(k);if(S.lexDay.w.length===S.lexGoal)toast('🎯 Цель дня выполнена! Так держать!')}}save()}
+function lexLoad(cb){if(LX)return cb();if(LXloading){LXT.push(cb);return}LXloading=true;LXT.push(cb);const s=document.createElement('script');s.src='words.js?v=15';
+ s.onload=()=>{const D=window.QE_WORDS;const mk=(a,c)=>({w:a[0],ru:a[1],p:a[2],l:a[3],t:D.topics[a[4]],ex:a[5]||'',exru:a[6]||'',c});LX={core:D.core.map(a=>mk(a,0)),c:D.c.map(a=>mk(a,1)),meta:D.meta};LX.all=[...LX.core,...LX.c];LX.by={};LX.all.forEach(x=>LX.by[x.w]=x);
+  const sets={};LX.all.forEach(x=>{const L=x.c?'C':x.l;const key=L+'|'+x.t;(sets[key]=sets[key]||[]).push(x)});LX.sets=[];
+  Object.entries(sets).forEach(([key,arr])=>{const [L,t]=key.split('|');const n=Math.ceil(arr.length/40);for(let i=0;i<n;i++){const part=arr.slice(i*40,(i+1)*40);LX.sets.push({id:key+'|'+i,L,t,name:t+(n>1?' '+(i+1):''),words:part})}});
+  LXloading=false;LXT.splice(0).forEach(f=>f())};
+ s.onerror=()=>{LXloading=false;$('#lxload').innerHTML='⚠️ Не удалось загрузить словарь (words.js). Проверь интернет и обнови страницу.';LXT.length=0};document.head.appendChild(s)}
+const known=arr=>arr.filter(x=>(S.lex[x.w]||{}).s>0).length;
+const setGold=st=>st.words.every(x=>(S.lex[x.w]||{}).s>=5);
+let LXL='A1';
+enter.lex=()=>{lexLoad(()=>{$('#lxload').style.display='none';$('#lxmain').style.display='block';lexHome()})};
+function lexGoalUI(){const t=ymd();if(S.lexDay.d!==t)S.lexDay={d:t,w:[]};const n=S.lexDay.w.length,g=S.lexGoal;$('#lxgoalchip').textContent=`🎯 ${n}/${g}`;$('#lxgoaltxt').textContent=n>=g?`✅ ${n} из ${g} — выполнено!`:`${n} из ${g} слов сегодня`;$('#lxgoalbar').style.width=Math.min(100,n/g*100)+'%';
+ $('#lxgoalset').innerHTML=[10,20,30,50].map(v=>`<span class="chip click" data-g="${v}" style="${v===g?'background:#7f5af0;color:#fff':''}">${v}</span>`).join('')+'<span class="sub" style="font-size:11px;align-self:center">слов/день</span>';$$('#lxgoalset .chip').forEach(c=>c.onclick=()=>{S.lexGoal=+c.dataset.g;save();lexGoalUI()})}
+function lexHome(){const k=known(LX.core),kc=known(LX.c);$('#lxknow').textContent=`Знаешь ${k} из ${LX.core.length}`;$('#lxbar').style.width=k/LX.core.length*100+'%';$('#lxc').textContent=`🎓 C1–C2 (продвинутые слова и идиомы): ${kc} из ${LX.c.length}`;
+ $('#lxgold').textContent=`🏅 Золотых наборов: ${LX.sets.filter(setGold).length} из ${LX.sets.length}`;lexGoalUI();
+ const due=LX.all.filter(x=>lexDue(x.w)).length;$('#lxreview').textContent=due?`🔁 Повторить слова (${due})`:'🔁 Повторять пока нечего — учи новые!';$('#lxreview').style.opacity=due?1:.6;
+ $('#lxlv').innerHTML=['A1','A2','B1','B2','C'].map(L=>`<span class="chip click" data-l="${L}" style="${L===LXL?'background:#7f5af0;color:#fff':''}">${L==='C'?'C1–C2':L}</span>`).join('');$$('#lxlv .chip').forEach(c=>c.onclick=()=>{LXL=c.dataset.l;lexHome()});
+ const sets=LX.sets.filter(s=>s.L===LXL).sort((a,b)=>b.words.length-a.words.length);
+ $('#lxsets').innerHTML=sets.map(s=>{const k=known(s.words),g=setGold(s);const e=TOPE[s.t]||'📦';return `<div class="it click lxset" data-id="${s.id}" style="${g?'background:linear-gradient(135deg,#fff3b0,#ffd23f)':''}"><div class="e">${g?'🏅':e}</div><div style="flex:1"><b>${s.name}</b><div class="sub" style="font-size:12px">${k} из ${s.words.length} слов</div><div class="hbar2" style="height:6px;margin-top:4px"><i style="width:${k/s.words.length*100}%"></i></div></div></div>`}).join('');
+ $$('#lxsets .lxset').forEach(d=>d.onclick=()=>{LXS=LX.sets.find(s=>s.id===d.dataset.id);show('lexset')})}
+const TOPE={'Еда':'🍎','Природа':'🌿','Животные':'🐾','Тело и здоровье':'💪','Состояния':'🌡️','Люди':'🧑','Общество':'🏛️','Места':'📍','Время':'⏰','Числа и меры':'🔢','Вещи и дом':'🏠','Деньги и покупки':'💰','Общение':'💬','Мысли и учёба':'🧠','Чувства':'❤️','Дела и работа':'💼','Изменения':'🔄','События':'🎉','Движение':'🏃','Действия':'✋','Качества':'🎨','Связи':'🔗','Восприятие':'👀','Бытие':'✨','Спорт и игры':'⚽','Описания':'🖍️','Наречия':'⚡','Служебные слова':'🧩','Общее':'📦','Идиомы и выражения':'🎭'};
+let LXS=null;
+enter.lexset=()=>{const s=LXS;$('#lsname').textContent=(TOPE[s.t]||'')+' '+s.name+' · '+(s.L==='C'?'C1–C2':s.L);const k=known(s.words);$('#lssub').textContent=`Выучено ${k} из ${s.words.length}`+(setGold(s)?' · 🏅 золотой набор!':'');
+ const nw=s.words.filter(x=>!(S.lex[x.w]||{}).s);$('#lsgo').textContent=nw.length?`Учить ${Math.min(10,nw.length)} новых слов ▶`:'Повторить набор ▶';
+ $('#lslist').innerHTML=s.words.map(x=>{const r=S.lex[x.w]||{s:0};return `<div class="it" style="${r.s>=5?'background:linear-gradient(135deg,#fff3b0,#ffd23f)':''}"><span class="spk" data-say="${x.w}">🔊</span><div style="flex:1"><b>${x.w}</b> <span class="sub" style="font-size:11px">${x.p}</span><div style="font-size:13px">${x.ru}</div><div class="sbar">${[1,2,3,4,5].map(i=>`<i class="${r.s>=i?'on':''}"></i>`).join('')}</div></div>${lexDue(x.w)?'<span title="пора повторить">😴</span>':''}</div>`}).join('');
+ $$('#lslist .spk').forEach(b=>b.onclick=()=>speak(b.dataset.say))};
+$('#lsgo').onclick=()=>{const s=LXS;let nw=s.words.filter(x=>!(S.lex[x.w]||{}).s);const pick=nw.length?nw.slice(0,10):shuf(s.words).slice(0,10);lessonStart(pick,nw.length>0,'Урок: '+s.name)};
+$('#lxreview').onclick=()=>{const due=shuf(LX.all.filter(x=>lexDue(x.w))).slice(0,20);if(!due.length)return toast('Повторять пока нечего 👍');lessonStart(due,false,'Повторение')};
+// ---- lesson
+let LS=null;
+function lessonStart(words,intro,title){LS={words,q:[],i:0,title,intro:intro?words.slice():[],done:0,total:0,mist:[],last:null,lock:false};
+ const types=['choose','chooseru','letters','listen','say','fill'];
+ words.forEach(w=>{const ts=shuf(types.filter(t=>!(t==='letters'&&(!/^[a-z]+$/.test(w.w)||w.w.length>11||w.w.length<3))&&!(t==='fill'&&!lexFillable(w)))).slice(0,intro?2:1);ts.forEach(t=>LS.q.push({w,t}))});
+ LS.q=lexOrder(shuf(LS.q));LS.total=LS.intro.length+LS.q.length;show('lexlearn')}
+function lexOrder(q){const out=[];const rest=q.slice();while(rest.length){let i=rest.findIndex(x=>!out.length||x.w!==out[out.length-1].w);if(i<0)i=0;out.push(rest.splice(i,1)[0])}return out}
+function lexFillable(w){return w.ex&&new RegExp('(^|[^A-Za-z])'+w.w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'([^A-Za-z]|$)','i').test(w.ex)}
+enter.lexlearn=()=>{if(!LS)return;if(LS.mode)return;$('#llt').textContent=LS.title;lexStep()};
+$('#llq').onclick=()=>{LS=null;hist=hist.filter(h=>h!=='lexlearn');back()};
+function lexProg(){$('#llbar').style.width=LS.done/LS.total*100+'%'}
+function lexStep(){LS.lock=false;$('#llfb').innerHTML='';lexProg();
+ if(LS.intro.length){const w=LS.intro.shift();$('#llbody').innerHTML=`<div class="card" style="text-align:center;padding:22px"><div class="sub">Новое слово · ${w.p} · ${w.c?'C1–C2':w.l}</div><div style="font-size:34px;font-weight:900;margin:8px 0">${w.w} <span class="spk" style="font-size:24px" id="llsay">🔊</span></div><div style="font-size:20px;color:#7f5af0;font-weight:800">${w.ru}</div>${w.ex?`<div style="margin-top:14px;font-size:15px"><span class="spk" id="llsay2">🔊</span><i>${w.ex}</i></div><div class="sub" style="font-size:13px">${w.exru}</div>`:''}</div><div class="btn" id="llnext">Дальше ▶</div>`;
+  speak(w.w);$('#llsay').onclick=()=>speak(w.w);if(w.ex)$('#llsay2').onclick=()=>speak(w.ex);$('#llnext').onclick=()=>{LS.done++;lexStep()};return}
+ if(LS.i>=LS.q.length)return lexEnd();const {w,t}=LS.q[LS.i];LS.cur=LS.q[LS.i];
+ const pool=(w.c?LX.c:LX.core).filter(x=>x.w!==w.w&&x.ru!==w.ru);const near=pool.filter(x=>x.t===w.t&&x.p===w.p);const dist=f=>shuf([w[f],...shuf(near.length>=6?near:pool).slice(0,3).map(x=>x[f])]);
+ const opts=(arr,ans)=>`<div style="display:grid;gap:8px;margin-top:10px">${arr.map(o=>`<div class="opt lopt" data-ok="${o===ans?1:0}" data-v="${String(o).replace(/"/g,'&quot;')}">${o}</div>`).join('')}</div>`;
+ let h='';const T={choose:'🇷🇺→🇬🇧 выбери перевод',chooseru:'🇬🇧→🇷🇺 что значит?',letters:'🔤 собери из букв',listen:'👂 послушай и выбери',say:'🗣️ скажи вслух',fill:'✍️ вставь слово в предложение'}[t];
+ if(t==='choose')h=`<div style="font-size:22px;font-weight:800">${w.ru}</div>`+opts(dist('w'),w.w);
+ if(t==='chooseru')h=`<div style="font-size:24px;font-weight:800">${w.w} <span class="spk" id="llsay">🔊</span></div>`+opts(dist('ru'),w.ru);
+ if(t==='listen')h=`<div class="opt" id="llsay" style="margin-top:6px">🔊 Послушать ещё раз</div>`+opts(dist('w'),w.w);
+ if(t==='fill'){const ex=w.ex.replace(new RegExp('(^|[^A-Za-z])('+w.w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')(?=[^A-Za-z]|$)','i'),'$1_____');h=`<div style="font-size:17px;font-weight:700">${ex}</div><div class="sub" style="font-size:13px">${w.exru}</div>`+opts(dist('w'),w.w)}
+ if(t==='say')h=`<div style="font-size:22px;font-weight:800">${w.ru}</div><div class="btn mic" id="llmic" style="margin-top:10px">🎤 Сказать</div><div class="sub" style="text-align:center;margin-top:8px"><span class="click" id="llno" style="text-decoration:underline">Не могу говорить сейчас → выбрать</span></div><div id="llsayo"></div>`;
+ if(t==='letters'){LS.target=w.w.split('');LS.built=[];h=`<div style="font-size:22px;font-weight:800">${w.ru}</div><div class="built" id="llbuilt"></div><div>${shuf(LS.target.map((p,i)=>({p,i}))).map(o=>`<span class="tile" data-i="${o.i}">${o.p}</span>`).join('')}</div><div class="row" style="gap:8px;margin-top:8px"><div class="opt" id="llclr" style="flex:1">↩️ Стереть</div><div class="opt" id="llchk" style="flex:2;background:#7f5af0;color:#fff">Проверить ✔</div></div>`}
+ $('#llbody').innerHTML=`<div class="card" style="padding:16px"><div class="sub" style="font-size:12px" id="lltype" data-t="${t}">${T}</div>${h}</div>`;
+ $$('#llbody .lopt').forEach(d=>d.onclick=()=>lexAns(d.dataset.ok==='1',d.dataset.v,d));
+ if(t==='listen'||t==='chooseru'){if(t==='listen')speak(w.w);$('#llsay').onclick=()=>speak(w.w)}
+ if(t==='say'){const fb=()=>{$('#llsayo').innerHTML=opts(dist('w'),w.w);$$('#llsayo .lopt').forEach(d=>d.onclick=()=>lexAns(d.dataset.ok==='1',d.dataset.v,d))};$('#llno').onclick=fb;
+  $('#llmic').onclick=()=>{if(!SR){toast('🎤 Распознавание речи не поддерживается — выбери ответ касанием');return fb()}listen($('#llmic'),(heard,conf)=>{const sc=sim(heard,w.w);$('#llsayo').innerHTML=`<div class="sub" style="margin-top:8px">Услышано: «${heard}» · совпадение ${Math.round(sc*100)}%</div>`;lexAns(sc>=.6,heard)})}}
+ if(t==='letters'){const upd=()=>$('#llbuilt').innerHTML=LS.built.map(i=>`<span class="tile">${LS.target[i]}</span>`).join('');$$('#llbody .tile[data-i]').forEach(e=>e.onclick=()=>{LS.built.push(+e.dataset.i);e.classList.add('used');upd()});
+  $('#llclr').onclick=()=>{const i=LS.built.pop();if(i!=null)$$('#llbody .tile[data-i]').find(e=>+e.dataset.i===i).classList.remove('used');upd()};$('#llchk').onclick=()=>{const g=LS.built.map(i=>LS.target[i]).join('');lexAns(g===w.w,g)}}}
+function lexAns(ok,given,el){if(LS.lock)return;LS.lock=true;const {w,t}=LS.cur;lexMark(w.w,ok);
+ $$('#llbody .lopt').forEach(d=>{if(d.dataset.ok==='1')d.classList.add('ok');else if(d===el)d.classList.add('bad','shake')});
+ const card=(good)=>`<div class="card" style="background:${good?'#e3ffef;border:2px solid #43e97b':'#fff4d6;border:2px solid #ffc43d'};padding:12px"><b style="color:${good?'#169c55':'#c47a00'}">${good?'✅ Верно!':'❌ Не совсем'}</b>${!good&&given?` <span class="sub">Твой ответ: «${given}»</span>`:''}<div style="margin-top:6px"><span class="spk" id="llfbs">🔊</span><b>${w.w}</b> <span class="sub">${w.p}</span> — ${w.ru}</div>${w.ex?`<div style="font-size:13px;margin-top:4px"><i>${w.ex}</i> — ${w.exru}</div>`:''}${good?'':'<div class="btn" id="llgo" style="margin-top:10px;padding:12px">Дальше ▶</div>'}</div>`;
+ $('#llfb').innerHTML=card(ok);$('#llfbs').onclick=()=>speak(w.w);LS.i++;LS.done++;
+ if(ok){setTimeout(()=>{if(LS)lexStep()},900)}else{LS.mist.push(w);const rq={w,t:'choose'};const pos=Math.min(LS.q.length,LS.i+2+(Math.random()*3|0));LS.q.splice(pos,0,rq);LS.q=LS.q.slice(0,LS.i).concat(lexOrder(LS.q.slice(LS.i)));LS.total++;$('#llgo').onclick=()=>lexStep()}}
+function lexEnd(){lexProg();act();addXP(20);const m=[...new Set(LS.mist)];$('#llbody').innerHTML=`<div style="text-align:center;margin-top:20px"><div style="font-size:60px">🎉</div><h1>Урок пройден!</h1><div class="sub">Слов: ${LS.words.length} · ошибок: ${LS.mist.length} · +20 XP</div></div>`+(m.length?`<div class="card" style="margin-top:12px"><b>Повтори эти слова:</b>${m.map(w=>`<div style="margin-top:6px"><b>${w.w}</b> — ${w.ru}</div>`).join('')}</div>`:'')+'<div class="btn" id="llback" style="margin-top:12px">Готово ▶</div>';$('#llfb').innerHTML='';
+ $('#llback').onclick=()=>{LS=null;hist=hist.filter(h=>h!=='lexlearn');back()}}
+// ---- swipe знаю/не знаю
+function quickPool(n){const L=LXL==='C'?LX.c:LX.core.filter(x=>x.l===LXL);const fresh=L.filter(x=>!(S.lex[x.w]||{}).s);return shuf(fresh.length>=n?fresh:L).slice(0,n)}
+$('#lxswipe').onclick=()=>{LS={mode:'swipe',words:quickPool(20),i:0,done:0,total:20,mist:[],kn:0};LS.total=LS.words.length;$('#llt').textContent='👆 Знаю / не знаю · '+(LXL==='C'?'C1–C2':LXL);show('lexlearn',true);swipeCard()};
+function swipeCard(){if(LS.i>=LS.words.length){LS.q=[];LS.i=0;LS.intro=[];return lexEnd()}lexProg();$('#llfb').innerHTML='';const w=LS.words[LS.i];
+ $('#llbody').innerHTML=`<div class="card" id="swc" style="text-align:center;padding:40px 16px;touch-action:pan-y;transition:transform .2s"><div style="font-size:34px;font-weight:900">${w.w} <span class="spk" id="swsay">🔊</span></div><div class="sub">${w.p}</div><div class="sub" style="margin-top:12px;font-size:12px">← свайп: не знаю · знаю: свайп →</div></div><div class="row" style="gap:10px"><div class="opt" id="swno" style="flex:1;background:#ffe3e3">🤔 Не знаю</div><div class="opt" id="swyes" style="flex:1;background:#e3ffef">✅ Знаю</div></div>`;
+ speak(w.w);$('#swsay').onclick=e=>{e.stopPropagation();speak(w.w)};$('#swno').onclick=()=>swipeAns(false);$('#swyes').onclick=()=>swipeAns(true);
+ const c=$('#swc');let x0=null;c.addEventListener('pointerdown',e=>x0=e.clientX);c.addEventListener('pointermove',e=>{if(x0!=null)c.style.transform=`translateX(${e.clientX-x0}px) rotate(${(e.clientX-x0)/20}deg)`});c.addEventListener('pointerup',e=>{const dx=e.clientX-x0;x0=null;c.style.transform='';if(Math.abs(dx)>70)swipeAns(dx>0)})}
+function swipeAns(ok){if(LS.lock)return;LS.lock=true;const w=LS.words[LS.i];lexMark(w.w,ok);if(ok)LS.kn++;else LS.mist.push(w);LS.i++;LS.done++;
+ const card=`<div class="card" style="background:${ok?'#e3ffef':'#fff4d6'};padding:12px;margin-top:10px"><b>${w.w}</b> — ${w.ru}${w.ex?`<div style="font-size:13px;margin-top:4px"><i>${w.ex}</i> — ${w.exru}</div>`:''}${ok?'':'<div class="btn" id="swgo" style="margin-top:10px;padding:12px">Дальше ▶</div>'}</div>`;$('#llfb').innerHTML=card;
+ const nx=()=>{LS.lock=false;swipeCard()};if(ok)setTimeout(()=>{if(LS)nx()},800);else $('#swgo').onclick=nx}
+// ---- lightning 60s
+let BZ=null;
+$('#lxblitz').onclick=()=>{LS={mode:'blitz',i:0,done:0,total:1,mist:[],q:[],intro:[],words:[]};BZ={end:Date.now()+60000,score:0,last:null,pool:quickPool(80)};$('#llt').textContent='⚡ Молния · 60 секунд';show('lexlearn',true);blitzQ();BZ.iv=setInterval(blitzTick,250)};
+function blitzTick(){if(!BZ)return;const left=Math.max(0,BZ.end-Date.now());$('#llbar').style.width=left/600+'%';const t=$('#bzt');if(t)t.textContent=`⏱ ${Math.ceil(left/1000)} с · ✅ ${BZ.score}`;if(!left)blitzEnd()}
+function blitzQ(){let w;do{w=BZ.pool[Math.random()*BZ.pool.length|0]}while(w===BZ.last&&BZ.pool.length>1);BZ.last=w;const pool=(w.c?LX.c:LX.core).filter(x=>x.ru!==w.ru);const o=shuf([w.ru,...shuf(pool).slice(0,3).map(x=>x.ru)]);
+ $('#llbody').innerHTML=`<div class="chip" id="bzt">⏱ 60 с · ✅ ${BZ.score}</div><div class="card" style="margin-top:10px;text-align:center"><div style="font-size:30px;font-weight:900">${w.w}</div><div style="display:grid;gap:8px;margin-top:10px">${o.map(x=>`<div class="opt lopt" data-ok="${x===w.ru?1:0}">${x}</div>`).join('')}</div></div>`;
+ $$('#llbody .lopt').forEach(d=>d.onclick=()=>{const ok=d.dataset.ok==='1';lexMark(w.w,ok);if(ok)BZ.score++;else{LS.mist.push(w);d.classList.add('bad')}$('#llfb').innerHTML=ok?'':`<div class="sub">❌ ${w.w} — ${w.ru}</div>`;blitzQ()})}
+function blitzEnd(){clearInterval(BZ.iv);const sc=BZ.score;BZ=null;S.lexBlitz=Math.max(S.lexBlitz||0,sc);save();act();const m=[...new Set(LS.mist)];
+ $('#llbody').innerHTML=`<div style="text-align:center;margin-top:20px"><div style="font-size:60px">⚡</div><h1>Время вышло!</h1><div class="sub">Правильных ответов: ${sc} · рекорд: ${S.lexBlitz}</div></div>`+(m.length?`<div class="card" style="margin-top:12px"><b>Разбор ошибок:</b>${m.map(w=>`<div style="margin-top:6px"><span class="spk" onclick="speak('${w.w.replace(/'/g,"\\'")}')">🔊</span><b>${w.w}</b> — ${w.ru}${w.ex?`<div class="sub" style="font-size:12px"><i>${w.ex}</i> — ${w.exru}</div>`:''}</div>`).join('')}</div>`:'')+'<div class="btn" id="llback" style="margin-top:12px">Готово ▶</div>';$('#llfb').innerHTML='';$('#llback').onclick=()=>{LS=null;hist=hist.filter(h=>h!=='lexlearn');back()}}
+// ---- pairs
+$('#lxpairs').onclick=()=>{LS={mode:'pairs',round:0,done:0,total:3,mist:[],q:[],intro:[],words:[]};$('#llt').textContent='🧩 Найди пары';show('lexlearn',true);pairsRound()};
+function pairsRound(){if(LS.round>=3){LS.i=0;LS.q=[];return lexEnd()}lexProg();const ws=quickPool(6);LS.pw=ws;LS.sel=null;LS.left=6;
+ const L=shuf(ws.map(w=>({k:w.w,t:w.w,s:'en'}))),R=shuf(ws.map(w=>({k:w.w,t:w.ru,s:'ru'})));
+ $('#llbody').innerHTML=`<div class="sub">Раунд ${LS.round+1} из 3 · соедини слово и перевод</div><div class="row" style="gap:8px;align-items:flex-start;margin-top:8px"><div style="flex:1">${L.map(x=>`<div class="opt pr" data-k="${x.k}" data-s="en" style="margin-bottom:8px;padding:10px">${x.t}</div>`).join('')}</div><div style="flex:1">${R.map(x=>`<div class="opt pr" data-k="${x.k}" data-s="ru" style="margin-bottom:8px;padding:10px;font-size:13px">${x.t}</div>`).join('')}</div></div>`;
+ $$('#llbody .pr').forEach(d=>d.onclick=()=>pairTap(d))}
+function pairTap(d){if(LS.lock||d.classList.contains('ok'))return;const s=LS.sel;if(!s||s.dataset.s===d.dataset.s){if(s)s.style.outline='';LS.sel=d;d.style.outline='3px solid #7f5af0';return}
+ LS.sel=null;s.style.outline='';if(s.dataset.k===d.dataset.k){[s,d].forEach(x=>x.classList.add('ok'));lexMark(d.dataset.k,true);if(s.dataset.s==='en')speak(s.dataset.k);if(--LS.left===0){LS.round++;LS.done++;setTimeout(pairsRound,700)}}
+ else{LS.lock=true;[s,d].forEach(x=>x.classList.add('bad','shake'));const a=LX.by[s.dataset.k],b=LX.by[d.dataset.k];lexMark(a.w,false);LS.mist.push(a);
+  $('#llfb').innerHTML=`<div class="card" style="background:#fff4d6;border:2px solid #ffc43d;padding:12px;margin-top:10px"><b style="color:#c47a00">❌ Не пара</b><div style="margin-top:4px"><b>${a.w}</b> — ${a.ru}</div><div><b>${b.w}</b> — ${b.ru}</div><div class="btn" id="prgo" style="margin-top:10px;padding:12px">Дальше ▶</div></div>`;
+  $('#prgo').onclick=()=>{[s,d].forEach(x=>x.classList.remove('bad','shake'));$('#llfb').innerHTML='';LS.lock=false}}}
+// search
+let lxqT;$('#lxq').oninput=()=>{clearTimeout(lxqT);lxqT=setTimeout(()=>{const q=$('#lxq').value.trim().toLowerCase();if(q.length<2)return $('#lxres').innerHTML='';const r=[];
+ for(const x of LX.all){if(x.w.startsWith(q)||x.ru.toLowerCase().includes(q))r.push(x);if(r.length>=30)break}
+ r.sort((a,b)=>(b.w===q)-(a.w===q));$('#lxres').innerHTML=(r.length?r.map(x=>{const s=(S.lex[x.w]||{}).s||0;return `<div class="it"><span class="spk" data-say="${x.w}">🔊</span><div style="flex:1"><b>${x.w}</b> <span class="sub" style="font-size:11px">${x.p} · ${x.c?'C1–C2':x.l} · ${x.t}</span><div style="font-size:13px">${x.ru}</div>${x.ex?`<div class="sub" style="font-size:12px"><i>${x.ex}</i> — ${x.exru}</div>`:''}</div><div style="font-size:11px">${'★'.repeat(s)}${'☆'.repeat(5-s)}</div></div>`}).join(''):'<div class="sub" style="margin-top:8px">Ничего не найдено</div>');
+ $$('#lxres .spk').forEach(b=>b.onclick=()=>speak(b.dataset.say))},150)};
 
 S.adv=advNorm(S.adv);save();
 </script></body></html>
