@@ -1,4 +1,4 @@
-<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><meta name="app-version" content="v12"><meta name="viewport" content="width=device-width"><title>Квест-Инглиш — прототип v12</title><style>
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><meta name="app-version" content="v13"><meta name="viewport" content="width=device-width"><title>Квест-Инглиш — прототип v13</title><style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Noto Sans',sans-serif;background:#1e1b3a;display:flex;gap:15px;width:2010px}
 .p{width:390px;height:844px;border-radius:0;overflow:hidden;position:relative;background:#f6f3ff;color:#2b2350;padding:54px 20px 20px}
@@ -14,7 +14,7 @@ h1{font-size:26px;font-weight:800}h2{font-size:18px;font-weight:800;margin:16px 
 .btn{display:block;text-align:center;padding:16px;border-radius:20px;font-weight:800;font-size:17px;color:#fff;background:linear-gradient(90deg,#7f5af0,#ff6bb5);box-shadow:0 8px 20px rgba(127,90,240,.4)}
 .row{display:flex;gap:10px;align-items:center}
 .nav{position:absolute;bottom:0;left:0;right:0;height:74px;background:#fff;display:flex;justify-content:space-around;align-items:center;font-size:11px;color:#9a91c4;border-top:1px solid #eee}
-.nav div{text-align:center}.nav b{display:block;font-size:22px}.nav .on{color:#7f5af0;font-weight:700}
+.nav div{text-align:center}.nav b{display:block;font-size:20px}.nav div{font-size:10px}.nav .on{color:#7f5af0;font-weight:700}
 .bub{padding:12px 14px;border-radius:18px;font-size:15px;max-width:80%;margin-bottom:10px}
 .chip{display:inline-block;padding:6px 12px;border-radius:14px;background:#efeaff;font-size:13px;font-weight:700;color:#7f5af0}
 .w{background:#fff;border-radius:18px;padding:12px;box-shadow:0 4px 12px rgba(80,60,180,.1)}
@@ -40,7 +40,32 @@ body{display:block;width:auto;min-height:100vh;display:flex;align-items:center;j
 .toast{position:absolute;left:20px;right:20px;top:60px;z-index:9;background:#2b2350;color:#fff;padding:12px;border-radius:16px;text-align:center;font-weight:700;display:none}
 .ru{font-size:12px;color:#8b84a8;font-weight:400;margin-top:3px}.bub[style*="#7f5af0"] .ru{color:#e2dafc}#battle .ru,#duel .ru{color:#6d6690}
 .notr .ru{display:none}.spk{cursor:pointer;margin-right:6px;font-size:14px;opacity:.75;user-select:none}.spk:hover{opacity:1}.mic.rec{animation:pulse 1s infinite}@keyframes pulse{50%{box-shadow:0 0 0 18px rgba(255,107,181,.25)}}.notr .reveal .ru{display:block}.opt .ru.hid{display:none}.wd{border-bottom:1.5px dotted currentColor;cursor:help}.wd2{border-bottom:1px dotted rgba(127,127,160,.35)}
-#replies{display:grid!important;gap:8px}</style></head><body>
+#replies{display:grid!important;gap:8px}.hbar2{height:10px;background:#eee;border-radius:6px;overflow:hidden}.hbar2 i{display:block;height:100%;background:linear-gradient(90deg,#43e97b,#38f9d7);transition:width .4s}
+.hbar2.m i{background:linear-gradient(90deg,#ff4d6d,#ff9f43)}
+.cls{display:flex;gap:12px;align-items:center;cursor:pointer;border:3px solid transparent}.cls.sel{border-color:#7f5af0}
+.cls .e{font-size:44px}
+.amap{position:relative;height:560px;background:linear-gradient(180deg,#fff7e6,#ffe3c2);border-radius:24px;margin-top:12px;overflow:hidden}
+.anode{position:absolute;width:64px;height:64px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:30px;box-shadow:0 6px 14px rgba(0,0,0,.18);cursor:pointer;transform:translate(-50%,-50%)}
+.anode small{position:absolute;top:66px;font-size:10px;font-weight:800;color:#6b4a2b;white-space:nowrap}
+.anode.lock{filter:grayscale(1);opacity:.5}.anode.done{background:#d9ffe8}.anode.next{animation:pulse 1.2s infinite;box-shadow:0 0 0 4px #ff9f43}
+.arena{position:relative;height:190px;border-radius:24px;background:linear-gradient(180deg,#6dd5ed,#2193b0 70%,#7a5c3a 70%);overflow:hidden;margin-top:8px}
+.fig{position:absolute;bottom:30px;font-size:64px;transition:transform .25s}.fig.hero{left:34px}.fig.mob{right:34px}
+.fig.atk.hero{transform:translateX(120px)}.fig.atk.mob{transform:translateX(-120px)}
+@keyframes bob{50%{transform:translateY(-6px)}}.fig span{display:inline-block;animation:bob 1.6s infinite}
+.dnum{position:absolute;font-size:26px;font-weight:900;color:#fff;text-shadow:0 2px 0 #c00;animation:dmg .9s forwards;top:30px}
+.dnum.crit{font-size:34px;color:#ffd23f}.dnum.heal{color:#b6ffcf;text-shadow:0 2px 0 #087}
+.tile{display:inline-block;min-width:34px;padding:8px 10px;margin:4px;border-radius:12px;background:#fff;box-shadow:0 3px 8px rgba(0,0,0,.12);font-weight:800;cursor:pointer;text-align:center}
+.tile.used{opacity:.25;pointer-events:none}
+.built{min-height:48px;background:#efeaff;border-radius:14px;padding:6px;margin:8px 0}
+.r-common{color:#6b6b6b}.r-rare{color:#2f80ed}.r-epic{color:#9b51e0}.r-legendary{color:#f2994a;text-shadow:0 0 6px #ffd23f}
+.it{display:flex;gap:10px;align-items:center;background:#fff;border-radius:16px;padding:10px;margin-bottom:8px;box-shadow:0 3px 10px rgba(0,0,0,.08)}
+.it .e{font-size:28px}.it .b{margin-left:auto}
+.wc{background:#fff;border-radius:16px;padding:10px;text-align:center;box-shadow:0 3px 10px rgba(0,0,0,.08);cursor:pointer}
+.wc.gold{background:linear-gradient(135deg,#fff3b0,#ffd23f);box-shadow:0 0 0 2px #f2c94c}.wc.unk{opacity:.45}.wc.due{box-shadow:0 0 0 2px #ff9f43}
+.sbar{display:flex;gap:2px;margin-top:6px}.sbar i{flex:1;height:6px;border-radius:3px;background:#eee}.sbar i.on{background:#7f5af0}.wc.gold .sbar i.on{background:#e67e22}
+.slot{flex:1;text-align:center;background:#fff;border-radius:16px;padding:10px 4px;box-shadow:0 3px 10px rgba(0,0,0,.08);font-size:12px}
+.slot .e{font-size:28px}
+</style></head><body>
 <div id="phone">
 <div class="sb" style="z-index:6"><span>9:41</span><span>📶 🔋</span></div>
 <div class="toast" id="toast"></div><div id="wpop" style="display:none;position:absolute;left:40px;right:40px;top:300px;z-index:10;background:#fff;border-radius:22px;padding:18px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.35)"></div>
@@ -56,7 +81,7 @@ body{display:block;width:auto;min-height:100vh;display:flex;align-items:center;j
 <h2>Выбери мир</h2>
 <div id="worlds"></div>
 <div class="row" style="justify-content:space-between"><div style="font-size:13px;color:#7a70a6">Серия на неделе</div><div style="font-size:18px;letter-spacing:4px" id="hweek">⚪⚪⚪⚪⚪⚪⚪</div></div>
-<div class="ver" id="hver" style="text-align:center;margin-top:14px;color:#b0a8cc;font-size:11px">Квест-Инглиш v12 · 14.10.2026</div>
+<div class="ver" id="hver" style="text-align:center;margin-top:14px;color:#b0a8cc;font-size:11px">Квест-Инглиш v13 · 14.10.2026</div>
 </div>
 
 <div class="scr" id="dialog" style="background:linear-gradient(180deg,#ffe6c7,#fff6ec 45%)">
@@ -79,7 +104,7 @@ body{display:block;width:auto;min-height:100vh;display:flex;align-items:center;j
 
 <div class="scr" id="map"><div class="row" style="justify-content:space-between"><h1><span class="back">←</span>🗺️ Карта уровней</h1><span class="chip" style="background:#fff1e0;color:#ff7a00;white-space:nowrap" id="xp">⭐ 0 XP</span></div>
 <div class="sub" style="margin:2px 0 10px">Каждый уровень — 10 глав и экзамен-босс 👹</div><div id="levels"></div>
-<div class="btn" data-next="1" id="cont">▶ Продолжить главу 7</div><div class="click" data-go="testintro" id="maptest" style="text-align:center;margin-top:10px;color:#7f5af0;font-weight:700;font-size:14px;text-decoration:underline">Пройти тест уровня (3 мин)</div><div class="ver" style="text-align:center;margin-top:8px;color:#b0a8cc;font-size:11px">Квест-Инглиш v12 · 14.10.2026</div><div class="click" id="reset" style="text-align:center;margin-top:14px;color:#b0a8cc;font-size:12px">↺ Сбросить прогресс</div></div>
+<div class="btn" data-next="1" id="cont">▶ Продолжить главу 7</div><div class="click" data-go="testintro" id="maptest" style="text-align:center;margin-top:10px;color:#7f5af0;font-weight:700;font-size:14px;text-decoration:underline">Пройти тест уровня (3 мин)</div><div class="ver" style="text-align:center;margin-top:8px;color:#b0a8cc;font-size:11px">Квест-Инглиш v13 · 14.10.2026</div><div class="click" id="reset" style="text-align:center;margin-top:14px;color:#b0a8cc;font-size:12px">↺ Сбросить прогресс</div></div>
 
 <div class="scr" id="inv"><h1><span class="back">←</span>🎒 Инвентарь слов</h1><div class="sub" id="invsub">0 слов собрано</div>
 <div class="card g1 row click" data-go="lair" style="margin-top:14px;padding:12px 16px"><div style="font-size:28px">✨</div><div style="font-size:14px"><b>Слова тускнеют!</b><br>Сразись с ними в Логове</div><div style="margin-left:auto;background:#fff;color:#ff6b6b;padding:8px 12px;border-radius:14px;font-weight:800">Вперёд</div></div>
@@ -160,14 +185,30 @@ body{display:block;width:auto;min-height:100vh;display:flex;align-items:center;j
 <div class="card" style="margin-top:40px;text-align:center" id="bebody"></div>
 <div class="btn" id="bego"></div>
 <div class="click" id="bemap" data-go="map" style="text-align:center;margin-top:10px;color:#7f5af0;font-weight:700;font-size:14px">На карту</div></div>
-<div class="nav" id="nav"><div data-tab="home"><b>🏠</b>Главная</div><div data-tab="map"><b>🗺️</b>Карта</div><div data-tab="inv"><b>🎒</b>Инвентарь</div><div data-tab="lair"><b>🕳️</b>Логово</div><div data-tab="duel"><b>⚔️</b>Дуэль</div></div>
+<div class="scr" id="advstart"><h1><span class="back">←</span>⚔️ Приключение</h1><div class="sub">Выбери класс героя. Слова — твоё оружие!</div>
+<div id="clslist" style="margin-top:14px"></div><input id="hname" placeholder="Имя героя" maxlength="14" style="width:100%;padding:12px;border-radius:14px;border:2px solid #e3dcff;font-size:16px;margin:4px 0 12px"><div class="btn" id="clsgo">Начать приключение ▶</div></div>
+<div class="scr" id="adv"><div class="row" style="justify-content:space-between"><h1>⚔️ Таверна и рынок</h1><span class="chip" id="acoins">🪙 0</span></div>
+<div class="card" style="padding:12px"><div class="row" style="gap:10px"><div style="font-size:38px" id="ahface">🛡️</div><div style="flex:1"><b id="ahname">Герой</b> <span class="sub" id="ahlvl"></span><div class="hbar2" style="margin-top:6px"><i id="ahhp"></i></div><div class="sub" id="ahstats" style="font-size:11px;margin-top:4px"></div></div></div>
+<div class="row" style="gap:8px;margin-top:10px"><div class="chip click" id="abag">🎒 Снаряжение</div><div class="chip click" id="acol">📚 Коллекция</div><div class="chip click" id="araid">⏱ Рейд</div></div><div id="askills" style="font-size:12px;margin-top:8px"></div></div>
+<div class="card g1 click" id="adue" style="display:none;padding:12px"></div>
+<div class="amap" id="amap"></div></div>
+<div class="scr" id="advfight"><div class="row" style="justify-content:space-between"><h1 style="font-size:18px" id="fname">Бой</h1><span class="chip click" id="frun">🏃 Сбежать</span></div>
+<div class="row" style="gap:8px;font-size:12px"><div style="flex:1">🧙 <b id="fhhpt"></b><div class="hbar2"><i id="fhhp"></i></div></div><div style="flex:1;text-align:right"><b id="fmhpt"></b><div class="hbar2 m"><i id="fmhp"></i></div></div></div>
+<div class="arena" id="arena"><div class="fig hero" id="fhero"><span>🛡️</span></div><div class="fig mob" id="fmob"><span>🐀</span></div></div>
+<div class="row" style="gap:6px;margin:8px 0;flex-wrap:wrap" id="fskills"></div>
+<div class="card" id="ftask" style="padding:14px"></div><div id="ffb"></div></div>
+<div class="scr" id="advres"><div style="text-align:center;margin-top:30px"><div style="font-size:70px" id="arico">🏆</div><h1 id="artitle"></h1><div class="sub" id="arsub"></div></div><div id="arloot" style="margin-top:16px"></div><div class="btn" id="argo" style="margin-top:16px">На карту ▶</div></div>
+<div class="scr" id="advbag"><h1><span class="back">←</span>🎒 Снаряжение</h1><div class="row" style="gap:8px;margin:10px 0" id="aslots"></div><div class="sub" id="abstats"></div><h3>Сумка</h3><div id="abaglist"></div></div>
+<div class="scr" id="advshop"><h1><span class="back">←</span>🧔 Лавка торговца</h1><div class="sub" id="ashopsub"></div><div id="ashoplist" style="margin-top:12px"></div></div>
+<div class="scr" id="advcol"><h1><span class="back">←</span>📚 Коллекция слов</h1><div class="sub" id="acolsub"></div><div class="row" style="gap:6px;margin:10px 0" id="acolf"></div><div id="acolgrid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px"></div></div>
+<div class="nav" id="nav"><div data-tab="home"><b>🏠</b>Главная</div><div data-tab="map"><b>🗺️</b>Карта</div><div data-tab="inv"><b>🎒</b>Инвентарь</div><div data-tab="lair"><b>🕳️</b>Логово</div><div data-tab="duel"><b>🤺</b>Дуэль</div><div data-tab="adv"><b>⚔️</b>Приключение</div></div>
 </div>
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-const DEF={v:12,dRecent:{},auto:false,fant:0,dragon:false,legend:false,lvl:0,tested:false,extra:[],xp:0,ch:1,streak:0,days:[],last:null,inv:[],invx:{},mon:[],w:0,l:0,tr:true,earned:0};
+const DEF={v:13,adv:null,dRecent:{},auto:false,fant:0,dragon:false,legend:false,lvl:0,tested:false,extra:[],xp:0,ch:1,streak:0,days:[],last:null,inv:[],invx:{},mon:[],w:0,l:0,tr:true,earned:0};
 const fresh=()=>JSON.parse(JSON.stringify(DEF));
 let S;try{S=Object.assign(fresh(),JSON.parse(localStorage.getItem('questEnglish')||'{}'))}catch(e){S=Object.assign({},DEF)}
-const SCHEMA=12;
+const SCHEMA=13;
 const ymd=d=>{d=d||new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
 function calcStreak(days){const set=new Set(days);let d=new Date();if(!set.has(ymd(d))){d.setDate(d.getDate()-1);if(!set.has(ymd(d)))return 0}let n=0;while(set.has(ymd(d))){n++;d.setDate(d.getDate()-1)}return n}
 function act(){const t=ymd();if(!S.days.includes(t)){S.days.push(t);S.days=S.days.slice(-400)}S.last=new Date().toDateString();S.streak=calcStreak(S.days);save();hud()}
@@ -192,7 +233,7 @@ function hud(){S.streak=calcStreak(S.days);{const now=new Date(),dow=(now.getDay
  $('#cont').textContent=S.legend?'👑 Повторить главы':S.ch<=10?`▶ Продолжить главу ${S.ch}`:'👹 Сразиться с экзамен-боссом';
  $('#nextch').textContent=FANT&&S.legend?((S.fant||0)<10?`🐉 Следующая глава Фэнтези (${(S.fant||0)+1}) →`:S.dragon?'🐉 Ещё глава Фэнтези':'🐉 К финальному боссу →'):S.legend?'👑 Ещё главу':S.ch<=10?`Следующая глава (${S.ch}) →`:'👹 К экзамен-боссу →';
  renderWorlds();$('#hbadge').style.display=S.dragon?'block':'none';{const d=S.legend?10:Math.min(S.ch-1,10);$('#hbar').style.width=d*10+'%';$('#hsub').textContent=S.legend?'Все главы пройдены · нажми для повтора ▶':S.ch>10?'10 из 10 глав · нажми, чтобы сразиться с боссом ▶':`Пройдено ${d} из 10 глав · нажми, чтобы продолжить ▶`}$('#hometest').style.display=S.tested?'none':'flex';$('#drec').textContent=`🏆 ${S.w} · 💔 ${S.l}`}
-const TABS=['home','map','inv','lair','duel'];let hist=[],cur=null;
+const TABS=['home','map','inv','lair','duel','adv'];let hist=[],cur=null;
 function show(id,push=true){if(typeof hud=='function')hud();if(push&&cur&&cur!==id)hist.push(cur);$$('.scr').forEach(e=>e.classList.toggle('on',e.id===id));cur=id;
  $('#nav').style.display=TABS.includes(id)?'flex':'none';$$('#nav div').forEach(d=>d.classList.toggle('on',d.dataset.tab===id));
  $('#'+id).scrollTop=0;(enter[id]||(()=>{}))();if(id!=='duel')stopDuel();}
@@ -443,13 +484,13 @@ function mkQs(m){const others=[...MON,...(S.extra||[])].filter(x=>x.w!==m.w&&x.r
   {id:'enru',q:'Что значит «'+m.w+'»?',o:[m.ru,...ruPool],a:m.ru,ru:true},
   {id:'spell',q:'Как правильно пишется «'+m.ru+'»?',o:[m.w,...sp],a:m.w},
   {id:'odd',q:'Какое слово переводится как «'+m.ru+'»? (новые варианты)',o:[m.w,...enPool],a:m.w}].map(x=>({...x,o:shuf(x.o)}))}
-function mNext(){if(!bm.pool.length){bm.pool=shuf(bm.all.filter(x=>x.id!==bm.cur?.id));}bm.cur=bm.pool.shift();bm.lock=false;const q=bm.cur;
+function mNext(){if(!bm.pool.length){let r=bm.all.filter(x=>x.id!==bm.cur?.id&&!bm.right.includes(x.id));if(!r.length)r=bm.all.filter(x=>x.id!==bm.cur?.id);bm.pool=shuf(r)}bm.cur=bm.pool.shift();bm.lock=false;const q=bm.cur;
  $('#mq').textContent=q.q;$('#mword').textContent='???';$('#bopts').innerHTML='';
  q.o.forEach(o=>{const d=document.createElement('div');d.className='opt';d.dataset.t=o;d.innerHTML=o+(q.ru?'':`<div class="ru hid">${o.split(' ').map(x=>tr(x)||x).join(' ')}</div>`);d.onclick=()=>hitM(d,o);$('#bopts').appendChild(d)})}
-enter.battle=()=>{hp=100;combo=0;lives=3;bm.all=mkQs(bm);bm.pool=shuf(bm.all);bm.cur=null;bm.asked=[];$('#mface').textContent=bm.e;$('#bheard').innerHTML='';$('#bfb').textContent='';$('#mtag').textContent=`Монстр «${bm.tag}»`;upd();mNext()};
+enter.battle=()=>{hp=100;combo=0;lives=3;bm.all=mkQs(bm);bm.pool=shuf(bm.all);bm.cur=null;bm.asked=[];bm.right=[];$('#mface').textContent=bm.e;$('#bheard').innerHTML='';$('#bfb').textContent='';$('#mtag').textContent=`Монстр «${bm.tag}»`;upd();mNext()};
 function bfb(ok,o){const q=bm.cur;$('#bfb').innerHTML=ok?`✅ Верно! «${bm.w}» = «${bm.ru}»`:`❌ «${o}» — неверно. Правильно: «${q.a}» (${bm.w} = ${bm.ru}). Следующий вопрос — другой.`}
 function upd(){$('#mhp').style.width=hp+'%';$('#mhpt').textContent=`HP ${hp} / 100`;$('#combo').textContent=`⚡ Комбо ×${combo}`;$('#lives').textContent='❤️ '+lives}
-function hitM(d,o,voice){if(hp<=0||bm.lock)return;bm.lock=true;bm.asked.push(bm.cur.id);const ok=voice?o===bm.w:o===bm.cur.a;$$('#bopts .ru').forEach(r=>r.classList.remove('hid'));bfb(ok,o);if(ok){combo++;const dmg=Math.min(hp,34*(combo>1?1.5:1)*(voice?2:1)|0);if(voice)toast('🎤 Голосовой удар — двойной урон!');hp-=dmg;d&&d.classList.add('ok');
+function hitM(d,o,voice){if(hp<=0||bm.lock)return;bm.lock=true;bm.asked.push(bm.cur.id);const ok=voice?o===bm.w:o===bm.cur.a;if(ok)bm.right.push(bm.cur.id);$$('#bopts .ru').forEach(r=>r.classList.remove('hid'));bfb(ok,o);if(ok){combo++;const dmg=Math.min(hp,34*(combo>1?1.5:1)*(voice?2:1)|0);if(voice)toast('🎤 Голосовой удар — двойной урон!');hp-=dmg;d&&d.classList.add('ok');
  const f=$('#mface');f.classList.remove('hit');void f.offsetWidth;f.classList.add('hit');const n=document.createElement('div');n.className='dmg';n.textContent='−'+dmg+' 💥';$('#mbox').appendChild(n);setTimeout(()=>n.remove(),900);
  upd();if(hp<=0){$('#mword').textContent=bm.w;bm.p++;S.mon[MON.indexOf(bm)]=bm.p;addXP(50);act();setTimeout(()=>{toast(`🎉 «${bm.w}» побеждён! Прогресс ${bm.p}/3 · +50 XP`);hist=hist.filter(h=>h!=='battle');show('lair',false)},900);return}}
  else{combo=0;lives=Math.max(0,lives-1);d&&d.classList.add('bad','shake');$('#task').classList.add('shake');upd();
@@ -512,4 +553,161 @@ $('#dmic').onclick=()=>{if(!CUR||step>=CUR.steps.length)return;listen($('#dmic')
 $('#bmic').onclick=()=>{if(hp<=0)return;listen($('#bmic'),(heard,conf)=>{const {best,score}=bestMatch(heard,bm.o);const h=heardCard(heard,best,score,conf,1);$('#bheard').innerHTML=h.html;if(h.ok){const d=[...$$('#bopts .opt')].find(x=>x.dataset.t===best);hitM(d,best,true)}})};
 autoUpd();
 show('home',false);
+// ===== ARPG «Приключение» =====
+const AW=[{"e": "🍞", "en": "bread", "ru": "хлеб", "ex": "Fresh bread, please.", "exru": "Свежий хлеб, пожалуйста.", "set": "food"}, {"e": "🧀", "en": "cheese", "ru": "сыр", "ex": "This cheese is very good.", "exru": "Этот сыр очень хороший.", "set": "food"}, {"e": "🍎", "en": "apple", "ru": "яблоко", "ex": "I want a red apple.", "exru": "Я хочу красное яблоко.", "set": "food"}, {"e": "🍲", "en": "soup", "ru": "суп", "ex": "The soup is hot.", "exru": "Суп горячий.", "set": "food"}, {"e": "🥩", "en": "meat", "ru": "мясо", "ex": "We need some meat for dinner.", "exru": "Нам нужно мясо на ужин.", "set": "food"}, {"e": "🐟", "en": "fish", "ru": "рыба", "ex": "The fish is from the river.", "exru": "Рыба из реки.", "set": "food"}, {"e": "🥚", "en": "egg", "ru": "яйцо", "ex": "I eat an egg for breakfast.", "exru": "Я ем яйцо на завтрак.", "set": "food"}, {"e": "🥛", "en": "milk", "ru": "молоко", "ex": "A glass of milk, please.", "exru": "Стакан молока, пожалуйста.", "set": "food"}, {"e": "🧈", "en": "butter", "ru": "сливочное масло", "ex": "Put butter on the bread.", "exru": "Намажь масло на хлеб.", "set": "food"}, {"e": "🍯", "en": "honey", "ru": "мёд", "ex": "The bears love honey.", "exru": "Медведи любят мёд.", "set": "food"}, {"e": "🧂", "en": "salt", "ru": "соль", "ex": "Pass the salt, please.", "exru": "Передай соль, пожалуйста.", "set": "food"}, {"e": "🍬", "en": "sugar", "ru": "сахар", "ex": "No sugar in my tea.", "exru": "Без сахара в моём чае.", "set": "food"}, {"e": "🥧", "en": "pie", "ru": "пирог", "ex": "The apple pie smells great.", "exru": "Яблочный пирог пахнет отлично.", "set": "food"}, {"e": "🎂", "en": "cake", "ru": "торт", "ex": "Can I have a piece of cake?", "exru": "Можно мне кусок торта?", "set": "food"}, {"e": "🍵", "en": "tea", "ru": "чай", "ex": "Would you like some tea?", "exru": "Хочешь чаю?", "set": "food"}, {"e": "🧃", "en": "juice", "ru": "сок", "ex": "Orange juice is my favourite.", "exru": "Апельсиновый сок — мой любимый.", "set": "food"}, {"e": "🥕", "en": "carrot", "ru": "морковь", "ex": "The rabbit eats a carrot.", "exru": "Кролик ест морковку.", "set": "food"}, {"e": "🥔", "en": "potato", "ru": "картофель", "ex": "I like potato soup.", "exru": "Я люблю картофельный суп.", "set": "food"}, {"e": "🧅", "en": "onion", "ru": "лук", "ex": "Onions make me cry.", "exru": "Лук заставляет меня плакать.", "set": "food"}, {"e": "🍗", "en": "chicken", "ru": "курица", "ex": "The chicken is ready.", "exru": "Курица готова.", "set": "food"}, {"e": "🍚", "en": "rice", "ru": "рис", "ex": "Rice with fish, please.", "exru": "Рис с рыбой, пожалуйста.", "set": "food"}, {"e": "💧", "en": "water", "ru": "вода", "ex": "Can I have some water?", "exru": "Можно мне воды?", "set": "food"}, {"e": "📜", "en": "menu", "ru": "меню", "ex": "Can I see the menu?", "exru": "Можно посмотреть меню?", "set": "food"}, {"e": "🍳", "en": "breakfast", "ru": "завтрак", "ex": "Breakfast is at eight.", "exru": "Завтрак в восемь.", "set": "food"}, {"e": "🍽️", "en": "dinner", "ru": "ужин", "ex": "Dinner is on the table.", "exru": "Ужин на столе.", "set": "food"}, {"e": "🥄", "en": "spoon", "ru": "ложка", "ex": "I need a spoon for my soup.", "exru": "Мне нужна ложка для супа.", "set": "food"}, {"e": "🛒", "en": "buy", "ru": "покупать", "ex": "I want to buy some bread.", "exru": "Я хочу купить хлеба.", "set": "act"}, {"e": "🏷️", "en": "sell", "ru": "продавать", "ex": "They sell fresh fish here.", "exru": "Здесь продают свежую рыбу.", "set": "act"}, {"e": "💳", "en": "pay", "ru": "платить", "ex": "Can I pay by card?", "exru": "Можно заплатить картой?", "set": "act"}, {"e": "👨‍🍳", "en": "cook", "ru": "готовить", "ex": "My mum likes to cook.", "exru": "Моя мама любит готовить.", "set": "act"}, {"e": "👅", "en": "taste", "ru": "пробовать на вкус", "ex": "Can I taste the cheese?", "exru": "Можно попробовать сыр?", "set": "act"}, {"e": "🙋", "en": "order", "ru": "заказывать", "ex": "I'd like to order soup.", "exru": "Я бы хотел заказать суп.", "set": "act"}, {"e": "🤝", "en": "share", "ru": "делиться", "ex": "Let's share this cake.", "exru": "Давай разделим этот торт.", "set": "act"}, {"e": "👉", "en": "choose", "ru": "выбирать", "ex": "Choose one apple.", "exru": "Выбери одно яблоко.", "set": "act"}, {"e": "🧺", "en": "carry", "ru": "нести", "ex": "Can you carry the basket?", "exru": "Можешь понести корзину?", "set": "act"}, {"e": "🧪", "en": "try", "ru": "пробовать", "ex": "Try this juice!", "exru": "Попробуй этот сок!", "set": "act"}, {"e": "🔢", "en": "count", "ru": "считать", "ex": "Count your coins.", "exru": "Посчитай свои монеты.", "set": "act"}, {"e": "🔪", "en": "cut", "ru": "резать", "ex": "Cut the bread, please.", "exru": "Порежь хлеб, пожалуйста.", "set": "act"}, {"e": "🫗", "en": "pour", "ru": "наливать", "ex": "Pour me some milk.", "exru": "Налей мне молока.", "set": "act"}, {"e": "🔁", "en": "borrow", "ru": "брать взаймы", "ex": "Can I borrow a coin?", "exru": "Можно одолжить монету?", "set": "act"}, {"e": "📦", "en": "bring", "ru": "приносить", "ex": "Bring me the menu, please.", "exru": "Принесите мне меню, пожалуйста.", "set": "act"}, {"e": "⏳", "en": "wait", "ru": "ждать", "ex": "Wait here, please.", "exru": "Подождите здесь, пожалуйста.", "set": "act"}, {"e": "🏪", "en": "market", "ru": "рынок", "ex": "The market opens at nine.", "exru": "Рынок открывается в девять.", "set": "shop"}, {"e": "💲", "en": "price", "ru": "цена", "ex": "What is the price?", "exru": "Какая цена?", "set": "shop"}, {"e": "🪙", "en": "coin", "ru": "монета", "ex": "I have one gold coin.", "exru": "У меня одна золотая монета.", "set": "shop"}, {"e": "👍", "en": "cheap", "ru": "дешёвый", "ex": "These apples are cheap.", "exru": "Эти яблоки дешёвые.", "set": "shop"}, {"e": "💎", "en": "expensive", "ru": "дорогой", "ex": "This cake is too expensive.", "exru": "Этот торт слишком дорогой.", "set": "shop"}, {"e": "💱", "en": "change", "ru": "сдача", "ex": "Here is your change.", "exru": "Вот ваша сдача.", "set": "shop"}, {"e": "🧾", "en": "receipt", "ru": "чек", "ex": "Can I have the receipt?", "exru": "Можно мне чек?", "set": "shop"}, {"e": "👜", "en": "bag", "ru": "сумка, пакет", "ex": "Do you need a bag?", "exru": "Вам нужен пакет?", "set": "shop"}, {"e": "🧺", "en": "basket", "ru": "корзина", "ex": "Put the fish in the basket.", "exru": "Положи рыбу в корзину.", "set": "shop"}, {"e": "🔖", "en": "discount", "ru": "скидка", "ex": "Is there a discount today?", "exru": "Сегодня есть скидка?", "set": "shop"}, {"e": "🏬", "en": "shop", "ru": "магазин", "ex": "The shop is closed.", "exru": "Магазин закрыт.", "set": "shop"}, {"e": "🧔", "en": "seller", "ru": "продавец", "ex": "The seller is very kind.", "exru": "Продавец очень добрый.", "set": "shop"}, {"e": "🧍", "en": "customer", "ru": "покупатель", "ex": "The customer wants cheese.", "exru": "Покупатель хочет сыр.", "set": "shop"}, {"e": "⚖️", "en": "scales", "ru": "весы", "ex": "Put the apples on the scales.", "exru": "Положи яблоки на весы.", "set": "shop"}, {"e": "🌿", "en": "fresh", "ru": "свежий", "ex": "Is the fish fresh?", "exru": "Рыба свежая?", "set": "shop"}, {"e": "🍌", "en": "ripe", "ru": "спелый", "ex": "The bananas are ripe.", "exru": "Бананы спелые.", "set": "shop"}, {"e": "½", "en": "half", "ru": "половина", "ex": "Half a kilo, please.", "exru": "Полкило, пожалуйста.", "set": "shop"}, {"e": "📏", "en": "kilo", "ru": "килограмм", "ex": "A kilo of potatoes, please.", "exru": "Килограмм картошки, пожалуйста.", "set": "shop"}];AW.forEach((w,i)=>{w.id='w'+i;w.hard=w.en.length>=7});
+const SETS={food:{n:'Еда',sk:'🍲 Сытный обед',d:'лечит героя'},act:{n:'Действия',sk:'💪 Боевой клич',d:'усиливает 3 следующих удара'},shop:{n:'Рынок',sk:'🪙 Торг',d:'скидка у торговца и больше монет'}};
+const SRI=[0,1,3,7,14,30];
+const CLS={war:{e:'🛡️',n:'Воин',d:'Быстрый ответ (до 5 сек) — удар +50%',hp:120},mag:{e:'🧙',n:'Маг',d:'Сложные (длинные) слова — удар +60%',hp:90},arc:{e:'🏹',n:'Лучник',d:'Ответ голосом — удар +70%',hp:100}};
+const RAR={common:{n:'обычный',m:1},rare:{n:'редкий',m:1.6},epic:{n:'эпический',m:2.4},legendary:{n:'легендарный',m:3.5}};
+const IBASE={weapon:[['🗡️','Кухонный нож'],['🪓','Топорик мясника'],['🥖','Багет-меч'],['🍴','Боевая вилка']],armor:[['🦺','Фартук повара'],['🧥','Плащ торговца'],['🥘','Щит-сковорода'],['🎽','Кожаный жилет']],amulet:[['🧿','Амулет удачи'],['🍀','Клевер'],['🔮','Хрустальный шар'],['🪬','Оберег рынка']]};
+const SLN={weapon:'Оружие',armor:'Броня',amulet:'Амулет'};
+const ANODES=[
+ {t:'fight',x:20,y:88,n:'Крыса-воришка',e:'🐀',hp:60,atk:8,set:'food'},
+ {t:'chest',x:52,y:80,n:'Сундук'},
+ {t:'fight',x:80,y:68,n:'Гриб-ворчун',e:'🍄',hp:75,atk:10,set:'act'},
+ {t:'shop',x:50,y:56,n:'Торговец'},
+ {t:'fight',x:20,y:44,n:'Тролль-жадина',e:'🧌',hp:90,atk:12,set:'shop'},
+ {t:'chest',x:48,y:32,n:'Сундук'},
+ {t:'fight',x:80,y:22,n:'Волк-обжора',e:'🐺',hp:100,atk:13,set:'mix'},
+ {t:'boss',x:42,y:9,n:'Повелитель кухни',e:'👨‍🍳',hp:180,atk:15,set:'mix'}];
+const SHOPI=[{k:'weapon',r:'rare',p:60},{k:'armor',r:'rare',p:55},{k:'amulet',r:'epic',p:120},{k:'potion',p:20}];
+function advDef(){return {cls:null,name:'Герой',hp:100,lvl:1,xp:0,coins:20,eq:{weapon:null,armor:null,amulet:null},bag:[],words:{},done:[],boss:false,raidDay:null,uid:1,pot:0,best:0}}
+function advNorm(a){a=Object.assign(advDef(),a&&typeof a==='object'?a:{});if(!CLS[a.cls])a.cls=null;['lvl','xp','coins','hp','uid','pot','best'].forEach(k=>{a[k]=Math.max(0,parseInt(a[k],10)||0)});a.lvl=Math.max(1,a.lvl);a.uid=Math.max(1,a.uid);
+ if(!Array.isArray(a.bag))a.bag=[];a.bag=a.bag.filter(i=>i&&IBASE[i.k]);if(typeof a.eq!=='object'||!a.eq)a.eq={};['weapon','armor','amulet'].forEach(k=>{if(!a.eq[k]||a.eq[k].k!==k)a.eq[k]=null});
+ if(typeof a.words!=='object'||!a.words)a.words={};for(const id in a.words){const w=a.words[id];if(!w||typeof w!=='object'){delete a.words[id];continue}w.s=Math.min(5,Math.max(0,parseInt(w.s,10)||0))}
+ if(!Array.isArray(a.done))a.done=[];a.done=a.done.filter(i=>Number.isInteger(i)&&i>=0&&i<ANODES.length);a.boss=!!a.boss;return a}
+const A=()=>S.adv;
+const addD=n=>{const d=new Date();d.setDate(d.getDate()+n);return ymd(d)};
+function wrec(w){return A().words[w.id]||{s:0}}
+function isDue(w){const r=A().words[w.id];return !!(r&&r.s>0&&r.due&&r.due<=ymd())}
+function lairWords(){return MON.filter(m=>m.p<3).map((m,i)=>({id:'L:'+m.w,e:m.e,en:m.w,ru:m.ru,ex:m.w,exru:m.ru,set:'lair',hard:m.w.length>=7,lair:true}))}
+function allW(){return [...AW,...lairWords()]}
+function dueW(){return [...AW.filter(isDue),...lairWords()]}
+function srMark(w,ok){const a=A();const r=a.words[w.id]||(a.words[w.id]={s:0});r.seen=(r.seen||0)+1;const t=ymd();
+ if(ok){r.ok=(r.ok||0)+1;if(r.last!==t||r.s===0){r.s=Math.min(5,r.s+1);r.last=t}r.due=addD(SRI[r.s])}
+ else{r.bad=(r.bad||0)+1;r.s=Math.max(0,r.s-1);r.due=t}
+ if(w.lair&&ok){const m=MON.find(x=>x.w===w.en);if(m&&r.last===t&&!r.lairHit){}}}
+function skillStr(set){const ws=AW.filter(w=>w.set===set);const learned=ws.filter(w=>wrec(w).s>0);if(learned.length<4)return 0;const avg=learned.reduce((s,w)=>s+wrec(w).s,0)/learned.length/5;const dueShare=learned.filter(isDue).length/learned.length;return Math.max(.05,avg*(learned.length/ws.length*.5+.5)*(1-.6*dueShare))}
+function stats(){const a=A(),c=CLS[a.cls]||CLS.war;let atk=0,def=0,hp=0,crit=0,luck=0;Object.values(a.eq).forEach(i=>{if(!i)return;atk+=i.atk||0;def+=i.def||0;hp+=i.hp||0;crit+=i.crit||0;luck+=i.luck||0});
+ return {atk:16+a.lvl*3+atk,def,maxhp:c.hp+(a.lvl-1)*12+hp,crit,luck}}
+function mkItem(k,r){const a=A();const [e,n]=IBASE[k][Math.random()*4|0];const m=RAR[r].m;const it={id:a.uid++,k,r,e,n,lv:a.lvl};
+ if(k==='weapon')it.atk=Math.round((4+a.lvl*1.5)*m);if(k==='armor'){it.def=Math.round((2+a.lvl)*m);it.hp=Math.round(8*m)}if(k==='amulet'){it.crit=Math.round(5*m);it.luck=Math.round(4*m)}
+ it.price=Math.round(15*m*m);return it}
+function itemTxt(i){return [i.atk?`⚔️+${i.atk}`:'',i.def?`🛡️+${i.def}`:'',i.hp?`❤️+${i.hp}`:'',i.crit?`💥+${i.crit}% крит`:'',i.luck?`🍀+${i.luck}% удача`:''].filter(Boolean).join(' ')}
+function rollRar(streak){const L=stats().luck/100;if(streak>=10&&Math.random()<.35+L)return 'legendary';const x=Math.random();return x<.08+L?'epic':x<.35+L?'rare':'common'}
+function heroHP(){const a=A(),m=stats().maxhp;if(!a.hp||a.hp>m)a.hp=Math.min(m,a.hp||m);return a.hp}
+function gainXP(n){const a=A();a.xp+=n;let up=false;while(a.xp>=a.lvl*100){a.xp-=a.lvl*100;a.lvl++;up=true}if(up){a.hp=stats().maxhp;toast(`⬆️ Новый уровень героя: ${a.lvl}! Здоровье восстановлено`)}}
+// ---- start
+let pickCls=null;
+enter.advstart=()=>{$('#clslist').innerHTML=Object.entries(CLS).map(([k,c])=>`<div class="card cls${pickCls===k?' sel':''}" data-cls="${k}"><div class="e">${c.e}</div><div><b>${c.n}</b> · ❤️ ${c.hp}<div class="sub" style="font-size:13px">${c.d}</div></div></div>`).join('');
+ $$('#clslist .cls').forEach(d=>d.onclick=()=>{pickCls=d.dataset.cls;enter.advstart()})};
+$('#clsgo').onclick=()=>{if(!pickCls)return toast('Сначала выбери класс 👆');const a=A();a.cls=pickCls;a.name=($('#hname').value||'').trim()||CLS[pickCls].n;a.hp=stats().maxhp;save();hist=hist.filter(h=>h!=='advstart');show('adv',false);toast(`${CLS[a.cls].e} ${a.name} готов к приключению!`)};
+// ---- map
+enter.adv=()=>{const a=A();if(!a.cls)return setTimeout(()=>show('advstart'),0);const st=stats(),c=CLS[a.cls];heroHP();
+ $('#acoins').textContent='🪙 '+a.coins;$('#ahface').textContent=c.e;$('#ahname').textContent=a.name;$('#ahlvl').textContent=`· ${c.n} · ур. ${a.lvl} · опыт ${a.xp}/${a.lvl*100}`;$('#ahhp').style.width=a.hp/st.maxhp*100+'%';
+ $('#ahstats').textContent=`❤️ ${a.hp}/${st.maxhp} · ⚔️ ${st.atk} · 🛡️ ${st.def} · 💥 ${st.crit}% · 🧪 зелий: ${a.pot}`;
+ $('#askills').innerHTML=Object.entries(SETS).map(([k,s])=>{const v=skillStr(k);return `<div>${s.sk} <span class="sub">(${s.n})</span>: ${v?`<b>${Math.round(v*100)}%</b> — ${s.d}`:'🔒 выучи 4+ слова набора'}</div>`}).join('');
+ const due=dueW();$('#adue').style.display=due.length?'block':'none';$('#adue').innerHTML=`😴 <b>Уставшие слова: ${due.length}</b><div style="font-size:13px">Они бродят по карте как монстры. Нажми, чтобы сразиться ▶</div>`;
+ const nx=ANODES.findIndex((n,i)=>!a.done.includes(i));
+ let svg='<svg style="position:absolute;inset:0;width:100%;height:100%"><polyline fill="none" stroke="#c99a6b" stroke-width="6" stroke-dasharray="10 8" points="'+ANODES.map(n=>`${n.x*3.5},${n.y*5.6}`).join(' ')+'"/></svg>';
+ $('#amap').innerHTML=svg+ANODES.map((n,i)=>{const done=a.done.includes(i),lock=i>nx&&nx>=0&&!done;const ic=n.t==='chest'?(done?'📭':'🎁'):n.t==='shop'?'🧔':done?'✅':n.e;
+  return `<div class="anode ${done?'done':''} ${lock?'lock':''} ${i===nx?'next':''}" id="an${i}" data-n="${i}" style="left:${n.x}%;top:${n.y}%">${lock?'🔒':ic}<small>${n.t==='boss'?'👑 ':''}${n.n}</small></div>`}).join('');
+ $$('#amap .anode').forEach(d=>d.onclick=()=>nodeTap(+d.dataset.n))};
+function nodeTap(i){const a=A(),n=ANODES[i],nx=ANODES.findIndex((x,j)=>!a.done.includes(j));
+ if(n.t==='shop')return a.done.includes(i)||i<=nx||nx<0?(a.done.includes(i)||a.done.push(i),save(),show('advshop')):toast('🔒 Сначала пройди предыдущие места');
+ if(!a.done.includes(i)&&i>nx&&nx>=0)return toast('🔒 Сначала пройди предыдущие места');
+ if(n.t==='chest'){if(a.done.includes(i))return toast('📭 Сундук уже пуст');a.done.push(i);const coins=25+Math.random()*25|0;a.coins+=coins;const it=mkItem(['weapon','armor','amulet'][Math.random()*3|0],Math.random()<.3?'epic':'rare');a.bag.push(it);save();
+  return resScreen('🎁','Сундук открыт!',`+${coins} 🪙`,[it])}
+ startFight(i)}
+$('#abag').onclick=()=>show('advbag');$('#acol').onclick=()=>show('advcol');
+$('#adue').onclick=()=>{const d=dueW();if(!d.length)return;startFight(-1,{n:'Уставшие слова',e:'😴',hp:40+d.length*12,atk:7,pool:d})};
+$('#araid').onclick=()=>{const a=A();if(a.raidDay===ymd())return toast('⏱ Сегодняшний рейд пройден. Приходи завтра!');let d=dueW();const raidPool=d.length>=5?d:[...d,...shuf(AW.filter(w=>wrec(w).s>0&&!d.includes(w))),...shuf(AW.filter(w=>!d.includes(w)))].slice(0,8);
+ startFight(-2,{n:'Ежедневный рейд',e:'🐲',hp:9999,atk:6,pool:raidPool,raid:true,time:180})};
+// ---- fight
+let F=null;
+function startFight(i,cfg){const a=A(),n=cfg||ANODES[i];let pool=n.pool;
+ if(!pool){const base=n.set==='mix'?AW:AW.filter(w=>w.set===n.set);const due=base.filter(isDue);pool=[...due,...shuf(base.filter(w=>!due.includes(w)))].slice(0,n.t==='boss'?14:9);const lw=lairWords();if(lw.length)pool.push(...shuf(lw).slice(0,2))}
+ F={i,n,mhp:n.hp,mmax:n.hp,pool,q:null,lastW:null,lastK:null,used:new Set(),streak:0,buff:0,skUsed:{},t0:0,end:false,raid:!!n.raid,raidOk:0,deadline:n.time?Date.now()+n.time*1000:0,lock:false};
+ heroHP();if(a.hp<stats().maxhp*.3)a.hp=Math.round(stats().maxhp*.3);show('advfight');}
+enter.advfight=()=>{if(!F)return show('adv',false);$('#fname').textContent=(F.n.t==='boss'?'👑 ':'')+F.n.n;$('#fmob span').textContent=F.n.e;$('#fhero span').textContent=CLS[A().cls].e;fUpd();fSkills();fNext()};
+function fUpd(){const a=A(),m=stats().maxhp;$('#fhhp').style.width=Math.max(0,a.hp)/m*100+'%';$('#fhhpt').textContent=`${a.name} ❤️ ${Math.max(0,a.hp)}/${m}`+(F.streak>1?` · 🔥×${F.streak}`:'');
+ if(F.raid){const left=Math.max(0,Math.round((F.deadline-Date.now())/1000));$('#fmhp').style.width=left/180*100+'%';$('#fmhpt').textContent=`⏱ ${Math.floor(left/60)}:${String(left%60).padStart(2,'0')} · ✅ ${F.raidOk}`}
+ else{$('#fmhp').style.width=Math.max(0,F.mhp)/F.mmax*100+'%';$('#fmhpt').textContent=`${F.n.e} ${Math.max(0,F.mhp)}/${F.mmax}`}}
+function fSkills(){const a=A();$('#fskills').innerHTML=[['food','fsk-heal'],['act','fsk-buff']].map(([k,id])=>{const v=skillStr(k);return `<div class="chip click" id="${id}" style="${!v||F.skUsed[k]?'opacity:.4':''}">${SETS[k].sk}${v?' '+Math.round(v*100)+'%':' 🔒'}</div>`}).join('')+`<div class="chip click" id="fsk-pot" style="${a.pot?'':'opacity:.4'}">🧪 Зелье ×${a.pot}</div>`;
+ $('#fsk-heal').onclick=()=>useSkill('food');$('#fsk-buff').onclick=()=>useSkill('act');$('#fsk-pot').onclick=()=>{if(!a.pot)return toast('🧪 Зелий нет — купи у торговца');a.pot--;heal(Math.round(stats().maxhp*.4));fSkills()}}
+function heal(v){const a=A();a.hp=Math.min(stats().maxhp,a.hp+v);pop('fhero','+'+v+' ❤️','heal');fUpd();save()}
+function useSkill(k){const v=skillStr(k);if(!v)return toast(`🔒 Навык откроется, когда выучишь 4+ слова набора «${SETS[k].n}»`);if(F.skUsed[k])return toast('Навык уже использован в этом бою');F.skUsed[k]=1;
+ if(k==='food'){heal(Math.round(stats().maxhp*(.15+.45*v)));toast(`${SETS.food.sk}: сила ${Math.round(v*100)}%`)}else{F.buff=3;F.buffV=.2+.8*v;toast(`${SETS.act.sk}: +${Math.round(F.buffV*100)}% к 3 ударам`)}fSkills()}
+function pop(el,t,cls){const d=document.createElement('div');d.className='dnum '+(cls||'');d.textContent=t;d.style.left=el==='fhero'?'50px':'auto';d.style.right=el==='fmob'?'50px':'auto';$('#arena').appendChild(d);setTimeout(()=>d.remove(),900)}
+const QTYPES=['ruen','enru','letters','phrase','listen','say'];
+function fNext(){if(F.end)return;F.lock=false;$('#ffb').innerHTML='';
+ if(F.raid&&Date.now()>F.deadline)return fEnd(true);
+ let cands=[];F.pool.forEach(w=>QTYPES.forEach(k=>{if(k==='letters'&&(/[^a-z]/i.test(w.en)||w.en.length>10))return;if(k==='phrase'&&(w.lair||w.ex.split(' ').length<3||w.ex.split(' ').length>7))return;cands.push({w,k,key:w.id+'|'+k})}));
+ let fresh=cands.filter(c=>!F.used.has(c.key)&&c.w!==F.lastW&&c.k!==F.lastK);if(!fresh.length){F.used=new Set();fresh=cands.filter(c=>c.w!==F.lastW&&c.key!==F.lastKey)}if(!fresh.length)fresh=cands;
+ const due=fresh.filter(c=>isDue(c.w)||c.w.lair);const c=(due.length&&Math.random()<.6?shuf(due):shuf(fresh))[0];
+ F.q=c;F.used.add(c.key);F.lastW=c.w;F.lastK=c.k;F.lastKey=c.key;F.t0=Date.now();renderTask()}
+function distract(w,field,n=3){const src=AW.filter(x=>x[field]!==w[field]&&x.set===w.set);const o=shuf(src.length>=n?src:AW.filter(x=>x[field]!==w[field])).slice(0,n).map(x=>x[field]);return shuf([w[field],...o])}
+function renderTask(){const {w,k}=F.q;const tag=isDue(w)||w.lair?'<span class="tag" style="background:#fff1e0;color:#ff7a00">😴 уставшее слово</span> ':'';const T=$('#ftask');let h='';
+ const opts=(arr,ans)=>`<div style="display:grid;gap:8px;margin-top:10px">${arr.map(o=>`<div class="opt aopt" data-v="${o.replace(/"/g,'&quot;')}" data-ok="${o===ans?1:0}">${o}</div>`).join('')}</div>`;
+ if(k==='ruen')h=`${tag}<div class="sub">Как по-английски?</div><div style="font-size:22px;font-weight:800">${w.e} ${w.ru}</div>`+opts(distract(w,'en'),w.en);
+ if(k==='enru')h=`${tag}<div class="sub">Что значит?</div><div style="font-size:22px;font-weight:800">${w.e} ${w.en}</div>`+opts(distract(w,'ru'),w.ru);
+ if(k==='listen')h=`${tag}<div class="sub">Послушай и выбери слово</div><div class="opt" id="alisten" style="margin-top:8px">🔊 Послушать ещё раз</div>`+opts(distract(w,'en'),w.en);
+ if(k==='say')h=`${tag}<div class="sub">Скажи по-английски вслух:</div><div style="font-size:22px;font-weight:800">${w.e} ${w.ru}</div><div class="btn mic" id="asay" style="margin-top:10px">🎤 Сказать</div><div class="sub" style="margin-top:8px;text-align:center"><span class="click" id="asayno" style="text-decoration:underline">Не могу говорить сейчас → выбрать</span></div><div id="asayopts"></div>`;
+ if(k==='letters'||k==='phrase'){const parts=k==='letters'?w.en.split(''):w.ex.replace(/[.,!?]/g,'').split(' ');F.target=parts;F.built=[];
+  h=`${tag}<div class="sub">${k==='letters'?'Собери слово из букв':'Собери фразу из слов'}</div><div style="font-size:${k==='letters'?22:16}px;font-weight:800">${w.e} ${k==='letters'?w.ru:w.exru}</div><div class="built" id="abuilt"></div><div id="atiles">${shuf(parts.map((p,i)=>({p,i}))).map(o=>`<span class="tile" data-i="${o.i}" data-p="${o.p}">${o.p}</span>`).join('')}</div><div class="row" style="gap:8px;margin-top:8px"><div class="opt" id="aclr" style="flex:1">↩️ Стереть</div><div class="opt" id="achk" style="flex:2;background:#7f5af0;color:#fff">Проверить ✔</div></div>`}
+ T.innerHTML=`<div class="sub" style="font-size:11px" id="aqtype" data-k="${k}">${({ruen:'🇷🇺→🇬🇧 выбор',enru:'🇬🇧→🇷🇺 выбор',letters:'🔤 буквы',phrase:'🧩 фраза',listen:'👂 на слух',say:'🗣️ произнеси'})[k]}</div>`+h;
+ $$('#ftask .aopt').forEach(d=>d.onclick=()=>answer(d.dataset.ok==='1',d.dataset.v,false,d));
+ if(k==='listen'){speak(w.en);$('#alisten').onclick=()=>speak(w.en)}
+ if(k==='say'){const fb=()=>{$('#asayopts').innerHTML=opts(distract(w,'en'),w.en);$$('#asayopts .aopt').forEach(d=>d.onclick=()=>answer(d.dataset.ok==='1',d.dataset.v,false,d))};
+  $('#asayno').onclick=fb;$('#asay').onclick=()=>{if(!SR){toast('🎤 Распознавание речи не поддерживается — выбери ответ касанием');return fb()}listen($('#asay'),(heard,conf)=>{const sc=sim(heard,w.en);$('#asayopts').innerHTML=`<div class="sub" style="margin-top:8px">Услышано: «${heard}» · совпадение ${Math.round(sc*100)}%</div>`;answer(sc>=.6,heard,true)})}}
+ if(k==='letters'||k==='phrase'){const sep=k==='letters'?'':' ';const upd=()=>$('#abuilt').innerHTML=F.built.map(i=>`<span class="tile">${F.target[i]}</span>`).join('');
+  $$('#atiles .tile').forEach(t=>t.onclick=()=>{F.built.push(+t.dataset.i);t.classList.add('used');upd()});
+  $('#aclr').onclick=()=>{const i=F.built.pop();if(i!=null)$$('#atiles .tile').find(t=>+t.dataset.i===i).classList.remove('used');upd()};
+  $('#achk').onclick=()=>{const got=F.built.map(i=>F.target[i]).join(sep);answer(got.toLowerCase()===F.target.join(sep).toLowerCase(),got)}}}
+function answer(ok,given,voice,el){if(F.lock||F.end)return;F.lock=true;const a=A(),{w,k}=F.q,st=stats(),c=a.cls,fast=Date.now()-F.t0<5000;srMark(w,ok);
+ $$('#ftask .aopt').forEach(d=>{if(d.dataset.ok==='1')d.classList.add('ok');else if(d===el)d.classList.add('bad','shake')});
+ if(ok){F.streak++;a.best=Math.max(a.best,F.streak);let dmg=st.atk,why=[];if(c==='war'&&fast){dmg*=1.5;why.push('⚡ быстрый ответ')}if(c==='mag'&&(w.hard||wrec(w).s<=1&&w.en.length>=6)){dmg*=1.6;why.push('✨ сложное слово')}if(c==='arc'&&voice){dmg*=1.7;why.push('🏹 голосом')}
+  if(F.buff){dmg*=1+F.buffV;F.buff--;why.push('💪 клич')}const crit=F.streak>=3&&(F.streak%3===0||Math.random()*100<st.crit);if(crit){dmg*=2;why.push('💥 КРИТ за серию')}dmg=Math.round(dmg);
+  if(F.raid)F.raidOk++;else F.mhp-=dmg;anim('fhero');pop('fmob','−'+dmg,crit?'crit':'');hitFx('fmob');
+  $('#ffb').innerHTML=`<div class="card" style="background:#e3ffef;border:2px solid #43e97b;padding:10px"><b style="color:#169c55">✅ Верно! −${dmg} HP</b> ${why.join(' · ')}<div style="font-size:13px;margin-top:4px">${w.e} <b>${w.en}</b> — ${w.ru}. <i>${w.ex}</i> — ${w.exru}</div></div>`}
+ else{F.streak=0;const dmg=Math.max(3,Math.round(F.n.atk*(F.n.t==='boss'?1.2:1)-st.def*.6));a.hp-=dmg;anim('fmob');pop('fhero','−'+dmg);hitFx('fhero');$('#ftask').classList.add('shake');setTimeout(()=>$('#ftask').classList.remove('shake'),700);
+  const expl={ruen:`«${w.ru}» по-английски — <b>${w.en}</b>.`,enru:`<b>${w.en}</b> значит «${w.ru}».`,letters:`Правильно пишется: <b>${w.en}</b>.`,phrase:`Правильный порядок: <b>${w.ex}</b> (${w.exru}). В английском порядок слов строгий: кто → что делает → что/где.`,listen:`Звучало слово <b>${w.en}</b> — «${w.ru}».`,say:`Нужно было сказать <b>${w.en}</b> — «${w.ru}». Нажми 🔊 и повтори.`}[k];
+  $('#ffb').innerHTML=`<div class="card" style="background:#fff4d6;border:2px solid #ffc43d;padding:10px"><b style="color:#c47a00">❌ Монстр бьёт: −${dmg} ❤️</b>${given?` <span class="sub">Твой ответ: «${given}»</span>`:''}<div style="font-size:13px;margin-top:4px">${expl} <span class="click" onclick="speak('${w.en.replace(/'/g,"\\'")}')">🔊</span><br><i>${w.ex}</i> — ${w.exru}</div></div>`}
+ fUpd();save();setTimeout(()=>{if(F.end)return;if(a.hp<=0)return fEnd(false);if(!F.raid&&F.mhp<=0)return fEnd(true);fNext()},ok?1100:2200)}
+function anim(id){const e=$('#'+id);e.classList.add('atk');setTimeout(()=>e.classList.remove('atk'),250)}
+function hitFx(id){const e=$('#'+id+' span');e.classList.remove('hit','shake');void e.offsetWidth;e.classList.add(id==='fhero'?'shake':'hit')}
+$('#frun').onclick=()=>{if(!F)return;F.end=true;save();toast('🏃 Ты сбежал. Монстр подождёт…');hist=hist.filter(h=>h!=='advfight');show('adv',false)};
+function fEnd(win){F.end=true;const a=A(),n=F.n;act();const loot=[];let coins=0,xp=0,title,sub,ico;
+ if(F.raid){a.raidDay=ymd();coins=20+F.raidOk*4;xp=F.raidOk*8;const it=mkItem(['weapon','armor','amulet'][Math.random()*3|0],F.raidOk>=10?'epic':'rare');loot.push(it);ico='🎁';title='Рейд завершён!';sub=`Верных ответов: ${F.raidOk} · Сундук рейда: +${coins} 🪙, +${xp} опыта`}
+ else if(win){const boss=n.t==='boss';coins=Math.round((boss?80:15+Math.random()*15)*(1+.3*skillStr('shop')));xp=boss?150:40+(n.hp/3|0);
+  if(boss||Math.random()<.65){const r=boss?(a.best>=10&&F.streak>=10?'legendary':rollRar(F.streak)==='legendary'?'legendary':'epic'):rollRar(F.streak);loot.push(mkItem(['weapon','armor','amulet'][Math.random()*3|0],r))}
+  if(F.i>=0&&!a.done.includes(F.i))a.done.push(F.i);if(boss){a.boss=true;addXP(200)}else addXP(30);ico=boss?'👑':'🏆';title=boss?'Повелитель кухни повержен!':`${n.n} побеждён!`;sub=`+${coins} 🪙 · +${xp} опыта героя`+(F.streak>=10?' · 🔥 серия 10+: шанс легендарки!':'')}
+ else{a.hp=Math.round(stats().maxhp*.5);ico='💫';title='Герой без сил…';sub='Ты очнулся в таверне с половиной здоровья. Повтори слова и возвращайся!'}
+ a.coins+=coins;gainXP(xp);a.bag.push(...loot);if(win&&!F.raid)a.hp=Math.min(stats().maxhp,a.hp+10);save();resScreen(ico,title,sub,loot)}
+function resScreen(ico,t,sub,loot){hist=hist.filter(h=>h!=='advfight');$('#arico').textContent=ico;$('#artitle').textContent=t;$('#arsub').textContent=sub;
+ $('#arloot').innerHTML=loot.map(i=>`<div class="it"><div class="e">${i.e}</div><div><b class="r-${i.r}">${i.n}</b><div class="sub" style="font-size:12px">${RAR[i.r].n} · ${SLN[i.k]} · ${itemTxt(i)}</div></div><div class="chip b click aeq" data-id="${i.id}">Надеть</div></div>`).join('')||'';
+ $$('#arloot .aeq').forEach(b=>b.onclick=()=>{equip(+b.dataset.id);b.textContent='✔ Надето'});show('advres',false)}
+$('#argo').onclick=()=>{hist=hist.filter(h=>h!=='advres');show('adv',false)};
+// ---- bag
+function equip(id){const a=A(),i=a.bag.find(x=>x.id===id);if(!i)return;const old=a.eq[i.k];a.eq[i.k]=i;a.bag=a.bag.filter(x=>x!==i);if(old)a.bag.push(old);heroHP();save();toast(`${i.e} ${i.n} надет`)}
+enter.advbag=()=>{const a=A(),st=stats();$('#aslots').innerHTML=Object.keys(SLN).map(k=>{const i=a.eq[k];return `<div class="slot" id="slot-${k}"><div class="e">${i?i.e:'➖'}</div><b class="${i?'r-'+i.r:''}">${i?i.n:SLN[k]}</b><div class="sub" style="font-size:10px">${i?itemTxt(i):'пусто'}</div></div>`}).join('');
+ $('#abstats').textContent=`Итого: ⚔️ ${st.atk} · 🛡️ ${st.def} · ❤️ ${st.maxhp} · 💥 ${st.crit}% · 🍀 ${st.luck}%`;
+ $('#abaglist').innerHTML=a.bag.length?a.bag.map(i=>`<div class="it"><div class="e">${i.e}</div><div><b class="r-${i.r}">${i.n}</b><div class="sub" style="font-size:12px">${RAR[i.r].n} · ${SLN[i.k]} · ${itemTxt(i)}</div></div><div class="b"><span class="chip click aeq" data-id="${i.id}">Надеть</span> <span class="chip click asell" data-id="${i.id}">🪙${Math.round(i.price/2)}</span></div></div>`).join(''):'<div class="sub">Сумка пуста. Побеждай монстров и открывай сундуки!</div>';
+ $$('#abaglist .aeq').forEach(b=>b.onclick=()=>{equip(+b.dataset.id);enter.advbag()});$$('#abaglist .asell').forEach(b=>b.onclick=()=>{const i=a.bag.find(x=>x.id===+b.dataset.id);a.coins+=Math.round(i.price/2);a.bag=a.bag.filter(x=>x!==i);save();toast('Продано');enter.advbag()})};
+// ---- shop
+let SHOP=null;
+enter.advshop=()=>{const a=A(),disc=skillStr('shop')*.3;if(!SHOP||SHOP.lv!==a.lvl)SHOP={lv:a.lvl,items:SHOPI.map(s=>s.k==='potion'?{k:'potion',e:'🧪',n:'Зелье здоровья',p:s.p}:Object.assign(mkItem(s.k,s.r),{p:s.p}))};
+ $('#ashopsub').textContent=`У тебя 🪙 ${a.coins}`+(disc?` · ${SETS.shop.sk}: скидка ${Math.round(disc*100)}%`:' · Выучи слова «Рынка» — получишь скидку');
+ $('#ashoplist').innerHTML=SHOP.items.map((i,j)=>{const p=Math.round(i.p*(1-disc));return `<div class="it"><div class="e">${i.e}</div><div><b class="${i.r?'r-'+i.r:''}">${i.n}</b><div class="sub" style="font-size:12px">${i.k==='potion'?'Лечит 40% здоровья в бою':RAR[i.r].n+' · '+SLN[i.k]+' · '+itemTxt(i)}</div></div><div class="chip b click abuy" id="buy${j}" data-j="${j}" style="${i.sold?'opacity:.4':''}">${i.sold?'продано':'🪙 '+p}</div></div>`}).join('')+'<div class="sub" style="margin-top:8px">«Hello! What would you like to buy?» — Здравствуй! Что хочешь купить?</div>';
+ $$('#ashoplist .abuy').forEach(b=>b.onclick=()=>{const i=SHOP.items[+b.dataset.j],p=Math.round(i.p*(1-disc));if(i.sold)return;if(a.coins<p)return toast(`Не хватает монет: нужно ${p} 🪙`);a.coins-=p;if(i.k==='potion')a.pot++;else{i.sold=true;const c=Object.assign({},i);delete c.p;delete c.sold;a.bag.push(c)}save();toast(`Куплено: ${i.e} ${i.n} — «Thank you!»`);enter.advshop()})};
+// ---- collection
+let COLF='all';
+enter.advcol=()=>{const a=A(),lw=lairWords();const list=[...AW,...lw].filter(w=>COLF==='all'||w.set===COLF);const gold=AW.filter(w=>wrec(w).s>=5).length,learned=AW.filter(w=>wrec(w).s>0).length;
+ $('#acolsub').textContent=`Изучено ${learned} из ${AW.length} · золотых ${gold} · уставших ${AW.filter(isDue).length}`;
+ $('#acolf').innerHTML=[['all','Все'],['food','🍲 Еда'],['act','💪 Действия'],['shop','🪙 Рынок'],...(lw.length?[['lair','🕳️ Логово']]:[])].map(([k,n])=>`<span class="chip click" data-f="${k}" style="${COLF===k?'background:#7f5af0;color:#fff':''}">${n}</span>`).join('');
+ $$('#acolf .chip').forEach(c=>c.onclick=()=>{COLF=c.dataset.f;enter.advcol()});
+ $('#acolgrid').innerHTML=list.map(w=>{const r=w.lair?{s:0}:wrec(w),unk=!w.lair&&!r.seen;return `<div class="wc ${r.s>=5?'gold':''} ${unk?'unk':''} ${isDue(w)||w.lair?'due':''}" data-en="${w.en}" data-id="${w.id}"><div style="font-size:26px">${unk?'❔':w.e}</div><b style="font-size:13px">${unk?'???':w.en}</b><div class="sub" style="font-size:11px">${unk?'ещё не встречено':w.ru}</div><div class="sbar">${[1,2,3,4,5].map(i=>`<i class="${r.s>=i?'on':''}"></i>`).join('')}</div>${r.due&&!w.lair?`<div class="sub" style="font-size:9px">${isDue(w)?'😴 пора повторить':'повтор '+r.due.slice(5).split('-').reverse().join('.')}</div>`:w.lair?'<div class="sub" style="font-size:9px">из Логова</div>':''}</div>`}).join('');
+ $$('#acolgrid .wc').forEach(c=>c.onclick=()=>{const w=allW().find(x=>x.id===c.dataset.id);if(!w||(!w.lair&&!wrec(w).seen))return toast('Это слово ещё не встретилось в бою');speak(w.en);toast(`${w.en} — ${w.ru}. ${w.ex}`)})};
+
+S.adv=advNorm(S.adv);save();
 </script></body></html>
