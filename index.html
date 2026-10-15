@@ -1,4 +1,4 @@
-<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><meta name="app-version" content="v17"><meta name="viewport" content="width=device-width"><title>Квест-Инглиш — прототип v17</title><style>
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><meta name="app-version" content="v17.1"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Квест-Инглиш — прототип v17.1</title><style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Noto Sans',sans-serif;background:#1e1b3a;display:flex;gap:15px;width:2010px}
 .p{width:390px;height:844px;border-radius:0;overflow:hidden;position:relative;background:#f6f3ff;color:#2b2350;padding:54px 20px 20px}
@@ -65,6 +65,20 @@ body{display:block;width:auto;min-height:100vh;display:flex;align-items:center;j
 .sbar{display:flex;gap:2px;margin-top:6px}.sbar i{flex:1;height:6px;border-radius:3px;background:#eee}.sbar i.on{background:#7f5af0}.wc.gold .sbar i.on{background:#e67e22}
 .slot{flex:1;text-align:center;background:#fff;border-radius:16px;padding:10px 4px;box-shadow:0 3px 10px rgba(0,0,0,.08);font-size:12px}
 .slot .e{font-size:28px}
+
+/* v17.1 mobile nav fix */
+:root{--navh:66px;--safeb:env(safe-area-inset-bottom,0px)}
+.nav{height:calc(var(--navh) + var(--safeb));padding-bottom:var(--safeb);align-items:stretch}
+.nav div{display:flex;flex-direction:column;justify-content:center;align-items:center;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;padding:0 1px;letter-spacing:-.2px}
+.scr{padding-bottom:calc(var(--navh) + var(--safeb) + 28px)!important;scroll-padding-bottom:calc(var(--navh) + var(--safeb) + 16px)}
+.scr::after{content:"";display:block;height:1px}
+@media (max-width:500px),(max-height:860px){
+ body{display:block;min-height:0}
+ #phone{width:100vw;height:100vh;height:100dvh;border-radius:0;box-shadow:none}
+ .sb{display:none}
+ .scr{padding-top:max(20px,env(safe-area-inset-top,0px))}
+}
+@media (max-width:380px){.nav div{font-size:8.5px}.nav b{font-size:17px}}
 </style></head><body>
 <div id="phone">
 <div class="sb" style="z-index:6"><span>9:41</span><span>📶 🔋</span></div>
@@ -81,7 +95,7 @@ body{display:block;width:auto;min-height:100vh;display:flex;align-items:center;j
 <h2>Выбери мир</h2>
 <div id="worlds"></div>
 <div class="row" style="justify-content:space-between"><div style="font-size:13px;color:#7a70a6">Серия на неделе</div><div style="font-size:18px;letter-spacing:4px" id="hweek">⚪⚪⚪⚪⚪⚪⚪</div></div>
-<div class="ver" id="hver" style="text-align:center;margin-top:14px;color:#b0a8cc;font-size:11px">Квест-Инглиш v17 · 15.10.2026</div>
+<div class="ver" id="hver" style="text-align:center;margin-top:14px;color:#b0a8cc;font-size:11px">Квест-Инглиш v17.1 · 16.10.2026</div>
 </div>
 
 <div class="scr" id="dialog" style="background:linear-gradient(180deg,#ffe6c7,#fff6ec 45%)">
@@ -104,7 +118,7 @@ body{display:block;width:auto;min-height:100vh;display:flex;align-items:center;j
 
 <div class="scr" id="map"><div class="row" style="justify-content:space-between"><h1><span class="back">←</span>🗺️ Карта уровней</h1><span class="chip" style="background:#fff1e0;color:#ff7a00;white-space:nowrap" id="xp">⭐ 0 XP</span></div>
 <div class="sub" style="margin:2px 0 10px">Каждый уровень — 10 глав и экзамен-босс 👹</div><div id="levels"></div>
-<div class="btn" data-next="1" id="cont">▶ Продолжить главу 7</div><div class="click" data-go="testintro" id="maptest" style="text-align:center;margin-top:10px;color:#7f5af0;font-weight:700;font-size:14px;text-decoration:underline">Пройти тест уровня (3 мин)</div><div class="ver" style="text-align:center;margin-top:8px;color:#b0a8cc;font-size:11px">Квест-Инглиш v17 · 15.10.2026</div><div class="click" id="reset" style="text-align:center;margin-top:14px;color:#b0a8cc;font-size:12px">↺ Сбросить прогресс</div></div>
+<div class="btn" data-next="1" id="cont">▶ Продолжить главу 7</div><div class="click" data-go="testintro" id="maptest" style="text-align:center;margin-top:10px;color:#7f5af0;font-weight:700;font-size:14px;text-decoration:underline">Пройти тест уровня (3 мин)</div><div class="ver" style="text-align:center;margin-top:8px;color:#b0a8cc;font-size:11px">Квест-Инглиш v17.1 · 16.10.2026</div><div class="click" id="reset" style="text-align:center;margin-top:14px;color:#b0a8cc;font-size:12px">↺ Сбросить прогресс</div></div>
 
 <div class="scr" id="inv"><h1><span class="back">←</span>🎒 Инвентарь слов</h1><div class="sub" id="invsub">0 слов собрано</div>
 <div class="card g1 row click" data-go="lair" style="margin-top:14px;padding:12px 16px"><div style="font-size:28px">✨</div><div style="font-size:14px"><b>Слова тускнеют!</b><br>Сразись с ними в Логове</div><div style="margin-left:auto;background:#fff;color:#ff6b6b;padding:8px 12px;border-radius:14px;font-weight:800">Вперёд</div></div>
