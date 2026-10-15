@@ -1,4 +1,4 @@
-<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><meta name="app-version" content="v16"><meta name="viewport" content="width=device-width"><title>Квест-Инглиш — прототип v16</title><style>
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><meta name="app-version" content="v17"><meta name="viewport" content="width=device-width"><title>Квест-Инглиш — прототип v17</title><style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Noto Sans',sans-serif;background:#1e1b3a;display:flex;gap:15px;width:2010px}
 .p{width:390px;height:844px;border-radius:0;overflow:hidden;position:relative;background:#f6f3ff;color:#2b2350;padding:54px 20px 20px}
@@ -72,7 +72,7 @@ body{display:block;width:auto;min-height:100vh;display:flex;align-items:center;j
 
 <div class="scr" id="home">
 <div class="row" style="justify-content:space-between"><div><div class="sub">Привет, Ян! 👋</div><h1>Куда отправимся?</h1></div>
-<div style="text-align:right"><div class="chip" style="background:#fff1e0;color:#ff7a00;font-size:16px;white-space:nowrap" id="hstreak">🔥 0 дней</div><div id="hbadge" style="display:none;margin-top:6px;font-size:12px;font-weight:800;color:#6a3093">🏅 Повелитель драконов</div></div></div>
+<div style="text-align:right"><div class="chip" style="background:#fff1e0;color:#ff7a00;font-size:16px;white-space:nowrap" id="hstreak">🔥 0 дней</div><div class="chip click" id="hsync" style="margin-top:6px;font-size:11px;white-space:nowrap">👤 Гость · войти</div><div id="hbadge" style="display:none;margin-top:6px;font-size:12px;font-weight:800;color:#6a3093">🏅 Повелитель драконов</div></div></div>
 <div class="card g2 click" data-next="1" id="hcard" style="margin-top:16px"><div style="font-size:13px;opacity:.9" id="hep">Глава дня · Эпизод 7</div><div style="font-size:13px;font-weight:800;float:right;margin-top:-18px" id="hxp">⭐ 0 XP</div>
 <div style="font-size:20px;font-weight:800;margin:4px 0 10px" id="htitle">…</div>
 <div class="bar" style="background:rgba(255,255,255,.3)"><i id="hbar" style="width:60%;background:#fff"></i></div>
@@ -81,7 +81,7 @@ body{display:block;width:auto;min-height:100vh;display:flex;align-items:center;j
 <h2>Выбери мир</h2>
 <div id="worlds"></div>
 <div class="row" style="justify-content:space-between"><div style="font-size:13px;color:#7a70a6">Серия на неделе</div><div style="font-size:18px;letter-spacing:4px" id="hweek">⚪⚪⚪⚪⚪⚪⚪</div></div>
-<div class="ver" id="hver" style="text-align:center;margin-top:14px;color:#b0a8cc;font-size:11px">Квест-Инглиш v16 · 15.10.2026</div>
+<div class="ver" id="hver" style="text-align:center;margin-top:14px;color:#b0a8cc;font-size:11px">Квест-Инглиш v17 · 15.10.2026</div>
 </div>
 
 <div class="scr" id="dialog" style="background:linear-gradient(180deg,#ffe6c7,#fff6ec 45%)">
@@ -104,7 +104,7 @@ body{display:block;width:auto;min-height:100vh;display:flex;align-items:center;j
 
 <div class="scr" id="map"><div class="row" style="justify-content:space-between"><h1><span class="back">←</span>🗺️ Карта уровней</h1><span class="chip" style="background:#fff1e0;color:#ff7a00;white-space:nowrap" id="xp">⭐ 0 XP</span></div>
 <div class="sub" style="margin:2px 0 10px">Каждый уровень — 10 глав и экзамен-босс 👹</div><div id="levels"></div>
-<div class="btn" data-next="1" id="cont">▶ Продолжить главу 7</div><div class="click" data-go="testintro" id="maptest" style="text-align:center;margin-top:10px;color:#7f5af0;font-weight:700;font-size:14px;text-decoration:underline">Пройти тест уровня (3 мин)</div><div class="ver" style="text-align:center;margin-top:8px;color:#b0a8cc;font-size:11px">Квест-Инглиш v16 · 15.10.2026</div><div class="click" id="reset" style="text-align:center;margin-top:14px;color:#b0a8cc;font-size:12px">↺ Сбросить прогресс</div></div>
+<div class="btn" data-next="1" id="cont">▶ Продолжить главу 7</div><div class="click" data-go="testintro" id="maptest" style="text-align:center;margin-top:10px;color:#7f5af0;font-weight:700;font-size:14px;text-decoration:underline">Пройти тест уровня (3 мин)</div><div class="ver" style="text-align:center;margin-top:8px;color:#b0a8cc;font-size:11px">Квест-Инглиш v17 · 15.10.2026</div><div class="click" id="reset" style="text-align:center;margin-top:14px;color:#b0a8cc;font-size:12px">↺ Сбросить прогресс</div></div>
 
 <div class="scr" id="inv"><h1><span class="back">←</span>🎒 Инвентарь слов</h1><div class="sub" id="invsub">0 слов собрано</div>
 <div class="card g1 row click" data-go="lair" style="margin-top:14px;padding:12px 16px"><div style="font-size:28px">✨</div><div style="font-size:14px"><b>Слова тускнеют!</b><br>Сразись с ними в Логове</div><div style="margin-left:auto;background:#fff;color:#ff6b6b;padding:8px 12px;border-radius:14px;font-weight:800">Вперёд</div></div>
@@ -214,14 +214,24 @@ body{display:block;width:auto;min-height:100vh;display:flex;align-items:center;j
 <div class="sub" style="font-size:10px;margin-top:14px">Данные: частотность — wordfreq (CC BY-SA 4.0); переводы — Викисловарь через kaikki.org (CC BY-SA 4.0); примеры — Tatoeba (CC BY 2.0 FR); темы — WordNet. Уровни CEFR — оценка по частотности.</div></div></div>
 <div class="scr" id="lexset"><h1><span class="back">←</span><span id="lsname"></span></h1><div class="sub" id="lssub"></div><div class="btn" id="lsgo" style="margin:12px 0">Учить 10 слов ▶</div><div id="lslist"></div></div>
 <div class="scr" id="lexlearn"><div class="row" style="justify-content:space-between"><h1 style="font-size:18px" id="llt">Урок</h1><span class="chip click" id="llq">✖ Выйти</span></div><div class="hbar2" style="margin:6px 0 12px"><i id="llbar"></i></div><div id="llbody"></div><div id="llfb"></div></div>
+<div class="scr" id="acct"><h1><span class="back">←</span>☁️ Аккаунт</h1><div class="sub">Войди, чтобы прогресс сохранялся в облаке и был доступен на любом устройстве. Можно играть и как гость — прогресс останется на этом устройстве.</div>
+<div class="card" style="margin-top:14px"><input id="aemail" type="email" autocomplete="email" placeholder="Электронная почта" style="width:100%;padding:12px;border-radius:14px;border:2px solid #e3dcff;font-size:16px;margin-bottom:8px"><input id="apass" type="password" autocomplete="current-password" placeholder="Пароль (не меньше 6 символов)" style="width:100%;padding:12px;border-radius:14px;border:2px solid #e3dcff;font-size:16px">
+<div class="btn" id="alogin" style="margin-top:12px">Войти</div><div class="btn" id="asignup" style="margin-top:8px;background:linear-gradient(90deg,#43e97b,#38b2ac)">Зарегистрироваться</div>
+<div class="row" style="justify-content:space-between;margin-top:12px;font-size:14px"><span class="click" id="amagic" style="color:#7f5af0;font-weight:700">✉️ Войти по ссылке на почту</span><span class="click" id="aforgot" style="color:#7a70a6">Забыли пароль?</span></div></div>
+<div class="card" id="anewpass" style="display:none"><b>Новый пароль</b><input id="apass2" type="password" autocomplete="new-password" placeholder="Новый пароль" style="width:100%;padding:12px;border-radius:14px;border:2px solid #e3dcff;font-size:16px;margin-top:8px"><div class="btn" id="asetpass" style="margin-top:10px">Сохранить пароль</div></div>
+<div id="amsg" class="sub" style="margin-top:8px"></div></div>
+<div class="scr" id="profile"><h1><span class="back">←</span>👤 Профиль</h1><div class="card"><div class="sub">Вы вошли как</div><div style="font-size:18px;font-weight:800;word-break:break-all" id="pemail"></div><div style="margin-top:10px" id="psync"></div><div class="sub" style="font-size:12px;margin-top:4px" id="plast"></div></div>
+<div class="btn" id="psyncnow">🔄 Синхронизировать сейчас</div><div class="btn" id="plogout" style="margin-top:10px;background:#fff;color:#c0392b;box-shadow:none;border:2px solid #f3c4c4">Выйти</div></div>
+<div id="mergebox" style="display:none;position:absolute;inset:0;background:rgba(30,20,60,.55);z-index:50;padding:120px 22px"><div class="card"><h3 style="margin-top:0">☁️ Найден прогресс в облаке</h3><div class="sub" id="mergeinfo"></div>
+<div class="btn" id="mmerge" style="margin-top:12px">Объединить (рекомендуется)</div><div class="opt" id="mcloud" style="margin-top:8px">Взять из облака</div><div class="opt" id="mlocal" style="margin-top:8px">Оставить с этого устройства</div></div></div>
 <div class="nav" id="nav"><div data-tab="home"><b>🏠</b>Главная</div><div data-tab="map"><b>🗺️</b>Карта</div><div data-tab="lex"><b>📚</b>Слова</div><div data-tab="inv"><b>🎒</b>Инвент.</div><div data-tab="lair"><b>🕳️</b>Логово</div><div data-tab="duel"><b>🤺</b>Дуэль</div><div data-tab="adv"><b>⚔️</b>Поход</div></div>
 </div>
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-const DEF={v:16,lex:{},lexDay:{d:'',w:[]},lexGoal:20,lexBlitz:0,adv:null,dRecent:{},auto:false,fant:0,dragon:false,legend:false,lvl:0,tested:false,extra:[],xp:0,ch:1,streak:0,days:[],last:null,inv:[],invx:{},mon:[],w:0,l:0,tr:true,earned:0};
+const DEF={v:17,lex:{},lexDay:{d:'',w:[]},lexGoal:20,lexBlitz:0,adv:null,dRecent:{},auto:false,fant:0,dragon:false,legend:false,lvl:0,tested:false,extra:[],xp:0,ch:1,streak:0,days:[],last:null,inv:[],invx:{},mon:[],w:0,l:0,tr:true,earned:0};
 const fresh=()=>JSON.parse(JSON.stringify(DEF));
 let S;try{S=Object.assign(fresh(),JSON.parse(localStorage.getItem('questEnglish')||'{}'))}catch(e){S=Object.assign({},DEF)}
-const SCHEMA=16;
+const SCHEMA=17;
 const ymd=d=>{d=d||new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
 function calcStreak(days){const set=new Set(days);let d=new Date();if(!set.has(ymd(d))){d.setDate(d.getDate()-1);if(!set.has(ymd(d)))return 0}let n=0;while(set.has(ymd(d))){n++;d.setDate(d.getDate()-1)}return n}
 function act(){const t=ymd();if(!S.days.includes(t)){S.days.push(t);S.days=S.days.slice(-400)}S.last=new Date().toDateString();S.streak=calcStreak(S.days);save();hud()}
@@ -865,4 +875,60 @@ function letDiff(got,target){got=got||'';const sep=target.includes(' ')&&!/^[a-z
  const n=Math.max(G.length,Tt.length);let a='',bad=0;for(let i=0;i<n;i++){const ok=G[i]&&G[i].toLowerCase()===(Tt[i]||'').toLowerCase();if(!ok)bad++;a+=cell(G[i]||'',!ok)}
  return `<div class="why" style="font-size:13px;margin-top:4px">💡 ${sep?'Слова не на своих местах':'Ошибка в буквах'} (${bad}): ${a}<br>Правильно: <b>${target}</b></div>`}
 S.adv=advNorm(S.adv);save();
+// ===== ☁️ облако (Supabase) =====
+const SB_URL='https://waertzdubndstkudluks.supabase.co',SB_KEY='sb_publishable_qPhThM09xM4b2YOZj1xaMQ_MkPNHWbP',SB_REDIRECT='https://calabok.github.io/quest-english/';
+let SB=null,CU=null,CST='guest',upT=null,cloudLast=null,dirty=false,applying=false;
+function setSync(st){CST=st;const m={guest:'👤 Гость · войти',loading:'⏳ Подключаю облако…',syncing:'⏳ Синхронизация…',saved:'☁️ Сохранено',offline:'📴 Офлайн',error:'⚠️ Облако недоступно',dirty:'⏳ Есть изменения…'};const e=$('#hsync');if(e)e.textContent=m[st]||st;
+ const p=$('#psync');if(p)p.textContent=m[st]||st;if($('#plast')&&cloudLast)$('#plast').textContent='Последняя синхронизация: '+new Date(cloudLast).toLocaleString('ru-RU')}
+function sbLoad(){return new Promise(res=>{if(window.__SB_MOCK)return res(window.__SB_MOCK(SB_URL,SB_KEY));if(!navigator.onLine)return res(null);
+ const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js';const to=setTimeout(()=>res(null),8000);
+ s.onload=()=>{clearTimeout(to);try{res(window.supabase.createClient(SB_URL,SB_KEY,{auth:{persistSession:true,detectSessionInUrl:true,autoRefreshToken:true}}))}catch(e){res(null)}};s.onerror=()=>{clearTimeout(to);res(null)};document.head.appendChild(s)})}
+function isFresh(o){return !o||(!(o.xp>0)&&!(o.days||[]).length&&!Object.keys(o.lex||{}).length&&!(o.adv&&o.adv.cls))}
+function mergeState(a,b){a=JSON.parse(JSON.stringify(a||{}));b=JSON.parse(JSON.stringify(b||{}));const m=Object.assign({},b,a);
+ ['xp','earned','w','l','lexBlitz','fant'].forEach(k=>m[k]=Math.max(+a[k]||0,+b[k]||0));['legend','dragon','tested'].forEach(k=>m[k]=!!(a[k]||b[k]));
+ const rk=o=>(o.legend?1e4:0)+(+o.lvl||0)*100+(+o.ch||0);const hi=rk(a)>=rk(b)?a:b;m.lvl=hi.lvl;m.ch=hi.ch;
+ m.days=[...new Set([...(a.days||[]),...(b.days||[])])].sort();m.inv=[...new Set([...(a.inv||[]),...(b.inv||[])])];m.invx=Object.assign({},b.invx||{},a.invx||{});
+ const ex=[],mon=[];[[a.extra||[],a.mon||[]],[b.extra||[],b.mon||[]]].forEach(([E,M])=>E.forEach((x,i)=>{const j=ex.findIndex(y=>y.w===x.w);if(j<0){ex.push(x);mon.push(+M[i]||0)}else mon[j]=Math.max(mon[j],+M[i]||0)}));m.extra=ex;m.mon=mon;
+ m.lex={};for(const k of new Set([...Object.keys(a.lex||{}),...Object.keys(b.lex||{})])){const x=(a.lex||{})[k],y=(b.lex||{})[k];if(!x||!y){m.lex[k]=x||y;continue}
+  const best=(x.s>y.s||(x.s===y.s&&(x.due||'')>=(y.due||'')))?x:y;m.lex[k]=Object.assign({},best,{seen:Math.max(x.seen||0,y.seen||0),ok:Math.max(x.ok||0,y.ok||0),bad:Math.max(x.bad||0,y.bad||0),last:[x.last||'',y.last||''].sort().pop()})}
+ const ad=a.adv,bd=b.adv;if(ad||bd){const sc=o=>o&&o.cls?(o.lvl||1)*1e5+(o.xp||0)+(o.done||[]).length*10:-1;const H=sc(ad)>=sc(bd)?ad:bd,L=H===ad?bd:ad;m.adv=JSON.parse(JSON.stringify(H));if(L){m.adv.done=[...new Set([...(H.done||[]),...(L.done||[])])];m.adv.boss=!!(H.boss||L.boss);m.adv.coins=Math.max(H.coins||0,L.coins||0)}}
+ if(a.lexDay&&b.lexDay&&a.lexDay.d===b.lexDay.d)m.lexDay={d:a.lexDay.d,w:[...new Set([...a.lexDay.w,...b.lexDay.w])]};else m.lexDay=(a.lexDay&&b.lexDay&&a.lexDay.d<b.lexDay.d)?b.lexDay:(a.lexDay||b.lexDay);
+ ['auto','tr','lexGoal'].forEach(k=>{if(k in a)m[k]=a[k]});return m}
+function applyState(o,why){applying=true;try{localStorage.setItem('questEnglish',JSON.stringify(o));sessionStorage.setItem('qeApplied',why||'1')}catch(e){}location.reload()}
+async function pull(){if(!SB||!CU)return null;const {data,error}=await SB.from('progress').select('data,version,updated_at').eq('user_id',CU.id).maybeSingle();if(error)throw error;return data}
+async function push(){if(!SB||!CU)return;clearTimeout(upT);if(!navigator.onLine){setSync('offline');return}setSync('syncing');
+ try{const now=new Date().toISOString();S.cloudSeen=now;_save();const {error}=await SB.from('progress').upsert({user_id:CU.id,data:S,version:SCHEMA,updated_at:now});if(error)throw error;dirty=false;cloudLast=Date.now();setSync('saved')}catch(e){console.warn('sync',e&&e.message);setSync(navigator.onLine?'error':'offline')}}
+function schedulePush(){if(!CU||applying)return;dirty=true;setSync('dirty');clearTimeout(upT);upT=setTimeout(push,3000)}
+async function onLogin(user,fromStart){CU=user;if($('#pemail'))$('#pemail').textContent=user.email||'';setSync('syncing');let row;
+ try{row=await pull()}catch(e){console.warn('pull',e&&e.message);setSync(navigator.onLine?'error':'offline');toast('⚠️ Облачное сохранение пока недоступно — играем локально');return}
+ const cloud=row&&row.data;
+ if(!cloud){await push();if(!fromStart)toast('☁️ Прогресс сохранён в облаке');return}
+ if(JSON.stringify(cloud)===JSON.stringify(S)){cloudLast=Date.parse(row.updated_at)||Date.now();setSync('saved');return}
+ if(isFresh(S)){const m=migrate(cloud);m.adv=cloud.adv;return applyState(m,'cloud')}
+ if(fromStart&&S.cloudSeen&&row.updated_at<=S.cloudSeen){await push();return}
+ if(fromStart){const m=mergeState(S,cloud);m.cloudSeen=new Date().toISOString();return applyState(m,'merge')}
+ $('#mergeinfo').innerHTML=`На этом устройстве: ⭐ ${fmt(S.xp)} XP, слов ${Object.keys(S.lex||{}).length}, дней ${(S.days||[]).length}.<br>В облаке: ⭐ ${fmt(cloud.xp||0)} XP, слов ${Object.keys(cloud.lex||{}).length}, дней ${(cloud.days||[]).length}.<br>Объединение возьмёт лучшее из обоих.`;$('#mergebox').style.display='block';
+ $('#mmerge').onclick=()=>{const m=mergeState(S,cloud);m.cloudSeen=new Date().toISOString();applyState(m,'merge')};$('#mcloud').onclick=()=>{const m=migrate(cloud);m.adv=cloud.adv;m.cloudSeen=new Date().toISOString();applyState(m,'cloud')};$('#mlocal').onclick=async()=>{$('#mergebox').style.display='none';S.cloudSeen=new Date().toISOString();save();await push()}}
+async function cloudInit(){setSync('loading');SB=await sbLoad();if(!SB){setSync(navigator.onLine?'error':'offline');return}
+ const applied=sessionStorage.getItem('qeApplied');sessionStorage.removeItem('qeApplied');
+ SB.auth.onAuthStateChange((ev,ses)=>{if(ev==='PASSWORD_RECOVERY'){show('acct');$('#anewpass').style.display='block';return}if(ev==='SIGNED_IN'&&ses&&(!CU||CU.id!==ses.user.id))onLogin(ses.user,false);if(ev==='SIGNED_OUT'){CU=null;setSync('guest')}});
+ try{const {data}=await SB.auth.getSession();const u=data&&data.session&&data.session.user;if(u&&!CU){if(applied){CU=u;$('#pemail').textContent=u.email||'';await push();toast(applied==='merge'?'☁️ Прогресс объединён и сохранён':'☁️ Прогресс загружен из облака')}else await onLogin(u,true)}else if(!u)setSync('guest')}catch(e){setSync('offline')}}
+const _save=save;save=function(){_save();if(CU&&!applying)schedulePush()};
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'&&CU&&dirty)push()});window.addEventListener('pagehide',()=>{if(CU&&dirty)push()});
+window.addEventListener('online',()=>{if(CU){push()}});window.addEventListener('offline',()=>{if(CU)setSync('offline')});
+$('#hsync').onclick=()=>show(CU?'profile':'acct');
+const msg=t=>$('#amsg').textContent=t;const cred=()=>({email:$('#aemail').value.trim(),password:$('#apass').value});
+const needSB=()=>{if(!SB){toast('📴 Нет связи с облаком. Проверь интернет и попробуй позже');return false}return true};
+$('#alogin').onclick=async()=>{if(!needSB())return;const c=cred();if(!c.email||!c.password)return msg('Введи почту и пароль');msg('Входим…');const {data,error}=await SB.auth.signInWithPassword(c);if(error)return msg('❌ '+ruErr(error.message));msg('');hist=hist.filter(h=>h!=='acct');show('home',false);if(data&&data.user&&(!CU||CU.id!==data.user.id))onLogin(data.user,false)};
+$('#asignup').onclick=async()=>{if(!needSB())return;const c=cred();if(!c.email||c.password.length<6)return msg('Почта и пароль (не меньше 6 символов)');msg('Создаём аккаунт…');const {data,error}=await SB.auth.signUp({...c,options:{emailRedirectTo:SB_REDIRECT}});if(error)return msg('❌ '+ruErr(error.message));
+ if(data&&data.session){msg('');hist=hist.filter(h=>h!=='acct');show('home',false);onLogin(data.user,false)}else msg('✉️ Мы отправили письмо. Открой ссылку из письма, чтобы подтвердить почту, и войди.')};
+$('#amagic').onclick=async()=>{if(!needSB())return;const e=$('#aemail').value.trim();if(!e)return msg('Введи почту');const {error}=await SB.auth.signInWithOtp({email:e,options:{emailRedirectTo:SB_REDIRECT}});msg(error?'❌ '+ruErr(error.message):'✉️ Ссылка для входа отправлена на '+e+'. Открой её на этом устройстве.')};
+$('#aforgot').onclick=async()=>{if(!needSB())return;const e=$('#aemail').value.trim();if(!e)return msg('Введи почту, и мы пришлём ссылку для сброса пароля');const {error}=await SB.auth.resetPasswordForEmail(e,{redirectTo:SB_REDIRECT});msg(error?'❌ '+ruErr(error.message):'✉️ Письмо для сброса пароля отправлено.')};
+$('#asetpass').onclick=async()=>{const p=$('#apass2').value;if(p.length<6)return msg('Не меньше 6 символов');const {error}=await SB.auth.updateUser({password:p});msg(error?'❌ '+ruErr(error.message):'✅ Пароль изменён');if(!error)$('#anewpass').style.display='none'};
+$('#plogout').onclick=async()=>{if(dirty)await push();if(SB)await SB.auth.signOut();CU=null;setSync('guest');toast('Вы вышли. Прогресс остался на этом устройстве');hist=hist.filter(h=>h!=='profile');show('home',false)};
+$('#psyncnow').onclick=()=>push();
+enter.profile=()=>{if(!CU)return setTimeout(()=>show('acct'),0);$('#pemail').textContent=CU.email||'';setSync(CST)};
+function ruErr(m){m=m||'';return /Invalid login/i.test(m)?'Неверная почта или пароль':/Email not confirmed/i.test(m)?'Почта не подтверждена — открой ссылку из письма':/already registered/i.test(m)?'Такой пользователь уже есть — нажми «Войти»':/rate limit/i.test(m)?'Слишком много попыток, подожди немного':/Password should be/i.test(m)?'Пароль слишком короткий':m}
+cloudInit();
+
 </script></body></html>
